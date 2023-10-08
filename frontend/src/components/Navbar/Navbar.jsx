@@ -3,6 +3,7 @@ import "./navbar.css"
 import { Link } from 'react-router-dom'
 import SideBar from '../SideBar/SideBar'
 import {RxHamburgerMenu} from "react-icons/rx"
+import Location from '../Location/Location'
 
 const Navbar = () => {
 const [sidebar,setSidebar]=useState(false);
@@ -39,6 +40,7 @@ const [sidebar,setSidebar]=useState(false);
           </div>
         </div>
       </div>
+   <Location/>
    {sidebar?   <SideBar setSidebar={setSidebar}/>:null}
     </>
   )

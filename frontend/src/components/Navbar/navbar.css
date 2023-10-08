@@ -9,7 +9,6 @@
     justify-content: space-between;
     padding: 1.9rem 9rem;
     background-color: #fff;
-    /* border: solid; */
     
 }
 .hamburger{
@@ -54,7 +53,7 @@
     flex-direction: row;
     align-items: center;
     padding-left:10px ;
-    gap:5px;
+    /* gap:5px; */
 }
 .cart-price>p{
     font-weight: bold;
@@ -72,6 +71,16 @@
     margin-left: 22px;
     font-size: 13px;
     font-weight: bold;
+}
+@media screen and (max-width:1050px){
+    .hamburger{
+        display:block;
+        font-weight: 500;
+        font-size: 25px;
+    }
+    .navbar-logo-menu ul{
+        display: none;
+    }
 }
 @media screen and (max-width:850px){
     .navbar-wrapper{

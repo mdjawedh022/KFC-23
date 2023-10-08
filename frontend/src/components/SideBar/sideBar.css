@@ -1,16 +1,78 @@
-.sidebar-wrapper{
-    background-color: rgb(0,0,0,.7);
-    position: fixed;
-    inset: 0;
-    z-index: 999;
+.sidebar-wrapper {
+  background-color: rgb(0, 0, 0, 0.7);
+  position: fixed;
+  inset: 0;
+  z-index: 999;
 }
-.modal-inner{
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 9999;
+.modal-inner {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  /* transform: translate(100%); */
+  z-index: 9999;
+}
+.side-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  border-bottom: 1px solid gainsboro;
+}
+.side-close {
+  font-weight: 600;
+  font-size: 25px;
+}
 
+.lines {
+  height:45px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  padding-bottom: 50px;
+}
+.line {
+  height: 45px;
+  width: 17px;
+  background-color: #e4002b;
+}
+.logocart1{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 60px;
+    height: 50px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+#cartitems1{
+    margin-top: -36px;
+    margin-left: 22px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ----------------body--------------- */
+.sidebar-header{
+    margin: 20px 0;
+    font-size: 30px;
+    font-weight:700;
+}
+.sidebar-body{
+    padding: 1rem 2rem;
+}
+.sidebar-account{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.sidebar-account p{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
 }

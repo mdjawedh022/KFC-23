@@ -152,6 +152,7 @@
 }
 @media screen and (max-width: 850px) {
   .location-wrapper {
+    margin-top: 6rem;
     padding: 0.5rem 0;
   }
   .location-inner {
@@ -194,6 +195,9 @@
 }
 
 @media screen and (max-width: 430px) {
+  .location-wrapper{
+    margin-top: 3.8rem;
+  }
   .location-modal-inner {
     width: 80%;
     left: 9%;

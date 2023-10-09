@@ -1,0 +1,234 @@
+
+.offers-wrapper{
+    background-color: #202124;
+}
+.offer-parent-div{
+    width: 75%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.lines1 {
+    width: 67%;
+    margin: auto;
+    height:45px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+    padding-bottom: 50px;
+  }
+  .line1 {
+    height: 45px;
+    width: 17px;
+    background-color: #e4002b;
+  }
+  /* -----------offer-deals-heading----------------- */
+.offer-deals-heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 67%;
+    margin:2rem auto -5rem auto;
+}
+.offer-deals-heading h2{
+    color: #ffffff;
+    font-size: 2.5rem;
+
+}
+.offer-deals-heading a{
+    color: #ffffff;
+    text-decoration: none;
+}
+/* -----------maping-data-css---------- */
+  .offer-inner-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:auto;
+    width: 100%;
+    margin: 0 15px;
+    font-size: 4em;
+    border-radius:10px;
+    background-color: #fff;
+
+   
+}
+.offer-inner-div img{
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height:auto;
+   object-fit: fill;
+}
+
+.offer-inner-div h2{
+    /* height: 43px; */
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 43px;
+    color: #e4002b;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.offer-inner-div p{
+    height: 48px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #3f4045;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-weight:500;
+}
+.offer-text{
+    padding: 0rem 1.5rem;
+}
+.offer-link-btn{
+width: 100%;
+padding: 1rem 1.5rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.offer-link-btn a{
+font-size: 1rem;
+color: #3f4045;
+font-weight:500;
+}
+.offer-link-btn button{
+    padding: .9rem 2.8rem;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: #202124;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.offer-link-btn button:hover{
+    color: #fff;
+    background-color: #202124;
+}
+
+
+@media screen and (max-width:850px) {
+    .offer-parent-div{
+        width: 95%;
+        margin: auto;
+    }
+    .offer-link-btn{
+        padding: 1rem 1.5rem;
+    }
+    .offer-link-btn a{
+        font-size: 1rem;
+        color: #3f4045;
+        font-weight:500;
+        }
+        .offer-link-btn button{
+            padding: .8rem 2rem;
+            font-weight: 600;
+            font-size: .7rem;
+        }
+        /* ----------- */
+        .offer-deals-heading{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 73%;
+            margin:2rem auto -5rem auto;
+        }
+        .offer-deals-heading h2{
+            color: #ffffff;
+            font-size: 1.8rem;
+        
+        }
+        .offer-deals-heading a{
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .lines1 {
+            width: 72%;
+            padding-bottom: 50px;
+          }
+    }
+
+@media screen and (max-width:450px) {
+    .offer-parent-div{
+        width: 95%;
+        margin: auto;
+    }
+    .offer-link-btn a{
+        font-size: .7rem;
+        color: #3f4045;
+        font-weight:500;
+        }
+        .offer-link-btn button{
+            padding: .8rem 1rem;
+            font-weight: 600;
+            font-size: .7rem;
+        }
+        .offer-deals-heading{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width:100%;
+            margin:2rem auto -5rem auto;
+        }
+        .offer-deals-heading h2{
+            color: #ffffff;
+            font-size: 1.5rem;
+        
+        }
+        .offer-deals-heading a{
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .lines1 {
+            width:25%;
+            padding-bottom: 40px;
+          }
+}
+@media screen and (max-width:380px) {
+    .offer-parent-div{
+        width: 100%;
+        margin: auto;
+    }
+    .offer-link-btn{
+        padding: 1rem 1rem;
+    }
+    .offer-link-btn a{
+        font-size: .7rem;
+        color: #3f4045;
+        font-weight:500;
+        }
+        .offer-link-btn button{
+            padding: .8rem 1rem;
+            font-weight: 600;
+            font-size: .7rem;
+        }
+        .lines1 {
+            width:28%;
+            padding-bottom: 20px;
+            /* border:solid */
+          }
+          .line1{
+            height:40px;
+          }
+}
+
+@media screen and (max-width:325px){
+    .offer-parent-div{
+        width: 100%;
+        margin: auto;
+    }
+} 

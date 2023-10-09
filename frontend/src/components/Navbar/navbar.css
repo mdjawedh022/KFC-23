@@ -85,7 +85,8 @@
 }
 @media screen and (max-width:850px){
     .navbar-wrapper{
-        padding: 1.7rem 5rem;
+        padding: 1.3rem 5rem;
+        /* border: solid; */
     }
    
     .hamburger{
@@ -103,6 +104,8 @@
 @media screen and (max-width:440px){
     .navbar-wrapper{
         padding: 1.7rem 1rem;
+        /* border: solid; */
+        height: 61px;
     }
     .hamburger{
         display:block;

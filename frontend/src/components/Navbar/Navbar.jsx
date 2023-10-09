@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import SideBar from '../SideBar/SideBar'
 import {RxHamburgerMenu} from "react-icons/rx"
 import Location from '../Location/Location'
+import cat01 from "../../assets/CAT01.svg"
+import bucket from "../../assets/bucket_cart_icon.svg"
+import account_icon from "../../assets/Account_Icon.svg"
 
 const Navbar = () => {
 const [sidebar,setSidebar]=useState(false);
@@ -15,7 +18,7 @@ const [sidebar,setSidebar]=useState(false);
       <div className="navbar-wrapper">
         <div className="hamburger"><RxHamburgerMenu onClick={()=>setSidebar(true)}/></div>
         <div className="navbar-logo-menu">
-          <Link to="/"><img src="https://online.kfc.co.in/static/media/kfcLogo.492728c6.svg" alt="logo" /></Link>
+          <Link to="/"><img src={cat01} alt="logo" /></Link>
         <ul>
         <li><Link>Menu</Link></li>
         <li><Link>Deals</Link></li>
@@ -23,7 +26,7 @@ const [sidebar,setSidebar]=useState(false);
         </div>
         <div className="navbar-login-cart">
             <div className="sigup-login-wrapper">
-                <img src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg" alt="account" />
+                <img src={account_icon} alt="account" />
                <h5>Sign In</h5>
             </div>
             <div className="cart-price">
@@ -32,7 +35,7 @@ const [sidebar,setSidebar]=useState(false);
             <div className="logocart"> 
            
             <img
-              src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg"
+              src={bucket}
               alt=""
             />
             <p id="cartitems">0</p>

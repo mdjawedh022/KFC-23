@@ -11,7 +11,7 @@
   align-items: center;
   display: flex;
   gap: 20px;
-  padding: 0 5rem;
+  padding: 0 7.5rem;
 }
 .location-inner h4 {
   font-size: 1rem;
@@ -52,12 +52,12 @@
   border-bottom: 1px solid#dbdbdb;
   padding: 1rem 2rem;
 }
-.loaction-heading h2{
-    padding-left: 22rem;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 24px;
+.loaction-heading h2 {
+  padding-left: 22rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
 }
 .aiclose {
   font-size: 25px;
@@ -91,33 +91,31 @@
 .location-modal-btn:last-child {
   margin-bottom: 6rem;
 }
-.btn-search{
-    padding: 5rem;
-    margin: auto;
-    text-align: center;
-    align-items: center;
+.btn-search {
+  padding: 5rem;
+  margin: auto;
+  text-align: center;
+  align-items: center;
 }
-.btn-search input{
-    padding: 1rem 3rem 1rem 1rem;
-    border-radius: 30px 0 0 30px;
-    outline: none;
-    font-size: 1rem;
-    border: 1px solid gray;
+.btn-search input {
+  padding: 1rem 3rem 1rem 1rem;
+  border-radius: 30px 0 0 30px;
+  outline: none;
+  font-size: 1rem;
+  border: 1px solid gray;
 }
-.btn-search button{
-    padding: 1rem ;
-    border-radius: 0 30px 30px 0;
-    font-size: 1rem;
-    border: 1px solid gray;
-    cursor: pointer;
-
+.btn-search button {
+  padding: 1rem;
+  border-radius: 0 30px 30px 0;
+  font-size: 1rem;
+  border: 1px solid gray;
+  cursor: pointer;
 }
-.btn-search p{
-    margin-top: 30px;
-    display: flex;
-    align-items:flex-end;
-    cursor: pointer;
-
+.btn-search p {
+  margin-top: 30px;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
 }
 @media screen and (max-width: 1050px) {
   .location-wrapper {
@@ -141,15 +139,15 @@
   .loaction-modal-body h1 {
     font-size: 1.5rem;
     margin: 1.5rem auto;
-    width:70%;
+    width: 70%;
     text-align: center;
   }
   .location-modal-btn {
     padding: 1rem 9rem;
     margin-top: 0.5rem;
   }
-  .loaction-heading h2{
-    padding-left:10rem;
+  .loaction-heading h2 {
+    padding-left: 10rem;
   }
 }
 @media screen and (max-width: 850px) {
@@ -176,97 +174,93 @@
   .loaction-modal-body h1 {
     font-size: 1.1rem;
     margin: 1.5rem auto;
-    width:70%;
+    width: 70%;
     text-align: center;
   }
   .location-modal-btn {
     padding: 1rem 9rem;
     margin-top: 0.5rem;
   }
-  .loaction-heading{
-font-size:.9rem;
+  .loaction-heading {
+    font-size: 0.9rem;
   }
-  .loaction-heading h2{
-    padding-left:7.9rem;
+  .loaction-heading h2 {
+    padding-left: 7.9rem;
     /* font-size: 1rem; */
   }
-  .btn-search{
+  .btn-search {
     padding: 2rem;
-   
-}
+  }
 }
 
+@media screen and (max-width: 430px) {
+  .location-modal-inner {
+    width: 80%;
+    left: 9%;
+  }
 
-@media screen and (max-width:430px) {
-    .location-modal-inner {
-        width: 80%;
-        left:9%;
-    
-    }
-    
-    .loaction-modal-body h1 {
-        font-size:1rem;
-        margin: 1.5rem auto;
-        width:80%;
-        text-align: center;
-      }
-      .location-modal-btn {
-        padding: 1rem 7rem;
-        margin-top: 0.5rem;
-      }
-      .location-modal-btn:last-child {
-        margin-bottom:3rem;
-      }
-      .loaction-heading{
-        font-size: .8rem;
-      }
-      .loaction-heading h2{
-        padding-left:3.5rem;
-        font-size: 1rem;
-      }
-      .btn-search{
-        padding: 2rem 1rem;
-        margin: auto;
-        text-align: center;
-        align-items: center;
-    }
-    .btn-search input{
-        padding: .5rem 1.5rem .5rem .5rem;
-        font-size: .8rem;
-    }
-    .btn-search button{
-        padding: .5rem;
-        font-size: .8rem;
-    }
+  .loaction-modal-body h1 {
+    font-size: 1rem;
+    margin: 1.5rem auto;
+    width: 80%;
+    text-align: center;
+  }
+  .location-modal-btn {
+    padding: 1rem 7rem;
+    margin-top: 0.5rem;
+  }
+  .location-modal-btn:last-child {
+    margin-bottom: 3rem;
+  }
+  .loaction-heading {
+    font-size: 0.8rem;
+  }
+  .loaction-heading h2 {
+    padding-left: 3.5rem;
+    font-size: 1rem;
+  }
+  .btn-search {
+    padding: 2rem 1rem;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+  }
+  .btn-search input {
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .btn-search button {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
 }
 @media screen and (max-width: 381px) {
-    .location-inner h4 {
-      font-size: 0.9rem;
-    }
-    .location-modal-btn {
-      padding: 1rem 6rem;
-      margin-top: 0.5rem;
-    }
-    .loaction-heading{
-        font-size:.6rem;
-      }
-      .loaction-heading h2{
-        padding-left:1.5rem;
-        font-size: .8rem;
-      }
-      .btn-search{
-        padding: 2rem .5rem;
-        margin: auto;
-        text-align: center;
-        align-items: center;
-    }
-    .btn-search input{
-        padding: .5rem 1rem .5rem .5rem;
-        font-size: .8rem;
-    }
-    .btn-search button{
-        padding: .5rem;
-        font-size: .8rem;
-    }
-  
+  .location-inner h4 {
+    font-size: 0.9rem;
   }
+  .location-modal-btn {
+    padding: 1rem 6rem;
+    margin-top: 0.5rem;
+  }
+  .loaction-heading {
+    font-size: 0.6rem;
+  }
+  .loaction-heading h2 {
+    padding-left: 1.5rem;
+    font-size: 0.8rem;
+  }
+  .btn-search {
+    padding: 2rem 0.5rem;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+  }
+  .btn-search input {
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .btn-search button {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}

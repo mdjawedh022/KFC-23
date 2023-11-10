@@ -21,7 +21,7 @@ margin: auto;
 .cat-card{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    gap: 25px;
+    gap: 25px;margin-bottom: 7rem;
    
 }
 .cat-card img{

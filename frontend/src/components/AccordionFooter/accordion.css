@@ -1,0 +1,9 @@
+.accordion-wrapper{
+    display: none;
+}
+@media screen and (max-width:850px) {
+    .accordion-wrapper{
+        display: block;
+        
+    }
+}

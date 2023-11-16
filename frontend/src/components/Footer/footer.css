@@ -1,16 +1,18 @@
-.footer-wrapper {   margin-top: 0;
+.footer-wrapper { 
+    margin-top:0;
     background-color: #222;
    
   }
   .inner-main-wrapper{
     display: flex;
     align-items:flex-start;
-    padding: 1rem 11rem;
+    padding: 3rem 11rem;
     gap:50px;
     /* border: solid; */
 
   }
   .inner-footer-wrapper{
+ 
     display: flex;
     gap:120px;
     align-items: flex-start;

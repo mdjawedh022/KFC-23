@@ -1,9 +1,177 @@
-.accordion-wrapper{
-    display: none;
+.accordion-wrapper {
+  display: none;
 }
-@media screen and (max-width:850px) {
-    .accordion-wrapper{
-        display: block;
-        
-    }
+@media screen and (max-width: 850px) {
+  .accordion-wrapper {
+    display: block;
+    background-color: #202124;
+    padding: 8% 5% 0;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+  }
+  .accordion-logo {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .accordion-item {
+    border-top: 1px solid #494949;
+    border-bottom: 1px solid #494949;
+    padding: 17px;
+  }
+  .accordion-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .accordion-Text {
+    background-color: transparent;
+    margin-top: 1rem;
+    border-top: 1px solid #494949;
+  }
+  .accordion-Text P {
+    line-height: 2rem;
+  }
+  .find-me {
+    border-top: 1px solid #494949;
+    border-bottom: 1px solid #494949;
+    padding: 17px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .find-me a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .download-acc {
+    margin-top: 2rem;
+  }
+  .download-app-acc {
+    display: flex;
+    /* border:solid; */
+    margin-top: 2rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .copywriter-acc {
+    text-align: center;
+  }
+  .social-media-link-acc {
+    display: flex;
+    align-items: center;
+    width: 28%;
+    margin: 1.5rem auto;
+    gap: 20px;
+  }
+  .icons-footer-acc {
+    padding: 0.8rem;
+    font-size: 3.1rem;
+    border-radius: 50px;
+    border: 3px solid #494949;
+  }
+  .copywriter-acc p {
+    font-size: 0.8rem;
+    padding-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .download-acc {
+    margin-top: 2rem;
+  }
+  .download-app-acc {
+    margin-top: 2rem;
+    width: 80%;
+  }
+  .copywriter-acc {
+    text-align: center;
+  }
+  .social-media-link-acc {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 1.5rem auto;
+    gap: 20px;
+  }
+  .icons-footer-acc {
+    padding: 0.5rem;
+    font-size: 3rem;
+    border-radius: 60px;
+    border: 3px solid #494949;
+  }
+  .copywriter-acc p {
+    font-size: 0.8rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .download-acc {
+    margin-top: 2rem;
+  }
+  .download-app-acc {
+    margin-top: 2rem;
+    width: 80%;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .copywriter-acc {
+    text-align: center;
+  }
+  .social-media-link-acc {
+    display: flex;
+
+    align-items: center;
+    width: 48%;
+    /* border: solid; */
+    margin: 1.5rem auto;
+    gap: 20px;
+  }
+  .icons-footer-acc {
+    padding: 0.5rem;
+    font-size: 2.5rem;
+    border-radius: 60px;
+    border: 3px solid #494949;
+  }
+  .copywriter-acc p {
+    font-size: 0.7rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .download-acc {
+    margin-top: 2rem;
+  }
+  .download-app-acc {
+    margin-top: 2rem;
+    width: 80%;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .copywriter-acc {
+    text-align: center;
+  }
+  .social-media-link-acc {
+    display: flex;
+
+    align-items: center;
+    width: 48%;
+    margin: 1.5rem auto;
+    gap: 20px;
+  }
+  .icons-footer-acc {
+    padding: 0.5rem;
+    font-size: 2rem;
+    border-radius: 60px;
+    border: 3px solid #494949;
+  }
+  .copywriter-acc p {
+    font-size: 0.7rem;
+    padding-bottom: 1rem;
+  }
 }

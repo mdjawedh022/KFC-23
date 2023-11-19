@@ -1,0 +1,66 @@
+/* .card-menu{
+
+} */
+.card1-menu img {
+  width: 100%;
+  border-radius: 5px;
+}
+.card2-menu .title {
+  color: #202124;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.title-menu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0.6rem 0;
+}
+.price-menu {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+.des-menu {
+  color: #494949;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.btn-menu {
+  border: none;
+  background-color: #e4002b;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  padding: 0.7rem 4rem;
+  border-radius: 40px;
+  margin: 1.5rem 0;
+  cursor: pointer;
+}
+@media screen and (max-width: 1050px) {
+  .btn-menu {
+    padding: 0.7rem 3rem;
+  }
+  .card2-menu .title {
+    color: #202124;
+    font-size: 1.1rem;
+  }
+  .title-menu p {
+    font-size: 0.9rem;
+  }
+  .price-menu {
+    font-size: 1rem;
+    margin: 0.4rem 0;
+  }
+  .des-menu {
+    font-size: 0.8rem;
+  }
+}

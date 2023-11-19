@@ -25,7 +25,7 @@ const [sidebar,setSidebar]=useState(false);
             </Link>
             <ul>
               <li>
-                <Link>Menu</Link>
+                <Link to="/menu">Menu</Link>
               </li>
               <li>
                 <Link to="/deals">Deals</Link>

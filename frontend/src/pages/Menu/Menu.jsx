@@ -28,9 +28,10 @@ const Menu = () => {
         alt=""
       />
     );
-  } else if (isError) {
-    alert("something wrong!");
-  }
+  } 
+  // else if (isError) {
+  //   alert("something wrong!");
+  // }
   // Filter products based on the search query
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchQuery.toLowerCase())

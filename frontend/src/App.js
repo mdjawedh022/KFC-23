@@ -13,15 +13,16 @@ setLoading(true);
 let timer=setTimeout(()=>{
   setLoading(false)
   return ()=>clearInterval(timer)
-},1000)
+},2000)
   },[])
   return loading ? (
     <div className="div-loading">
       {" "}
-      <img
+      {/* <img
         src="https://media0.giphy.com/media/JrqjNrXQxPs9BgASJ7/giphy.gif"
         alt="a"
-      />
+      /> */}
+      <img src="https://online.kfc.co.in/KFC_Loader_Gif.gif" alt="" />
     </div>
   ) : (
     <div className="App">

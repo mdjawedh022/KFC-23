@@ -1,78 +1,167 @@
 .sidebar-wrapper {
-  background-color: rgb(0, 0, 0, 0.7);
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-}
-.modal-inner {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  position: fixed;
-  left: 0;
-  top: 0;
-  /* transform: translate(100%); */
-  z-index: 9999;
-}
-.side-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-  border-bottom: 1px solid gainsboro;
-}
-.side-close {
-  font-weight: 600;
-  font-size: 25px;
+  display: none;
 }
 
-.lines {
-  height:45px;
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  align-items: flex-start;
-  padding-bottom: 50px;
-}
-.line {
-  height: 45px;
-  width: 17px;
-  background-color: #e4002b;
-}
-.logocart1{
+@media screen and (max-width: 1050px) {
+  .sidebar-wrapper {
+    display: block;
+    background-color: rgb(0, 0, 0, 0.7);
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+  }
+  .modal-inner {
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    /* transform: translate(100%); */
+    z-index: 9999;
+  }
+  .side-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    border-bottom: 1px solid gainsboro;
+  }
+  .side-close {
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  .lines {
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+    padding-bottom: 50px;
+  }
+  .line {
+    height: 45px;
+    width: 17px;
+    background-color: #e4002b;
+  }
+  .logocart1 {
     margin-top: auto;
     margin-bottom: auto;
     width: 60px;
     height: 50px;
     padding-left: 10px;
     cursor: pointer;
-}
-#cartitems1{
+  }
+  #cartitems1 {
     margin-top: -36px;
     margin-left: 22px;
     font-size: 13px;
     font-weight: bold;
-}
+  }
 
-/* ----------------body--------------- */
-.sidebar-header{
+  /* ----------------body--------------- */
+  .sidebar-header {
     margin: 20px 0;
     font-size: 30px;
-    font-weight:700;
-}
-.sidebar-body{
+    font-weight: 700;
+  }
+  .sidebar-body {
     padding: 1rem 2rem;
-}
-.sidebar-account{
+    overflow-y:scroll;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 5px 5px;
+    height: calc(100% - 53px);
+    overflow-x: hidden;
+  }
+  .sidebar-account {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
-}
-.sidebar-account p{
+  }
+  .sidebar-account p {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
+  }
+
+  /* --------------menu-sidebar---------------- */
+  .menu-sidebar {
+    padding-left: 5%;
+    background: #f8f7f5;
+    border-radius: 3px;
+    margin: 3% 1%;
+    height: 23vw;
+    display: flex !important;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+   .menu-sidebar a{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+
+   }
+   .img-sidebar-img  img{
+    height: 100%;
+    width: 100%;
+   }
+   .img-sidebar-img{
+    /* border: 1px solid red; */
+    height: 95%;
+   }
+  .menu-sidebar-1 {
+    background: #f8f7f5;
+    border-radius: 3px;
+    margin: 3% 1%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .menu-sidebar-1 p{
+    font-size: 1.1rem;
+    margin-top: 3.5rem;
+      padding-left: 5%;
+  }
+  .menu-sidebar-1 p:nth-child(3){
+    margin-bottom: 3rem;
+  }
+  
+}
+
+@media screen and (max-width:450px) {
+   .img-sidebar-img  img{
+    height: 100%;
+    width: 100%;
+   }
+   .img-sidebar-img{
+    /* border: 1px solid red; */
+    height: 95%;
+   }
+  .menu-sidebar-1 {
+    background: #f8f7f5;
+    border-radius: 3px;
+    margin: 3% 1%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .menu-sidebar-1 p{
+    font-size: 1rem;
+    margin-top: 2rem;
+      padding-left: 5%;
+  }
+  .menu-sidebar-1 p:nth-child(3){
+    margin-bottom: 2rem;
+  }
 }

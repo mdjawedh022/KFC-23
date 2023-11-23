@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
 import "./navbar.css"
-import { Link, useNavigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import SideBar from '../SideBar/SideBar'
 import {RxHamburgerMenu} from "react-icons/rx"
 import Location from '../Location/Location'
 import cat01 from "../../assets/CAT01.svg"
 import bucket from "../../assets/bucket_cart_icon.svg"
 import account_icon from "../../assets/Account_Icon.svg"
-import { useDispatch } from 'react-redux'
+
 
 const Navbar = () => {
 const [sidebar,setSidebar]=useState(false);
-// const dispatch =useDispatch();
-const navigate=useNavigate()
+
 
 
     return (
@@ -35,10 +34,10 @@ const navigate=useNavigate()
             </ul>
           </div>
           <div className="navbar-login-cart">
-            <div className="sigup-login-wrapper" onClick={()=>navigate('/login')}>
+            <Link className="sigup-login-wrapper" to='/login'>
               <img src={account_icon} alt="account" />
               <h5>Sign In</h5>
-            </div>
+            </Link>
             <div className="cart-price">
               <p>₹ 0</p>
 

@@ -48,6 +48,8 @@
     border-right: solid 1px #202124;
     padding-right: 10px;
     gap: 10px;
+    text-decoration: none;
+    color: #202124;
 }
 .cart-price{
     display: flex;

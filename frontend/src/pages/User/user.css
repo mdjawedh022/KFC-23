@@ -44,6 +44,7 @@ font-weight: 600;
 }
 .form  img{
     margin-top: 1rem;
+    cursor: pointer;
     margin-bottom: 2rem;
 }
 .form .input-container{

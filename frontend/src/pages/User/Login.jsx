@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import "./user.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/CAT01.svg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { login} from "../../Redux/auth/action";
 
 const Login = () => {
+const navigate=useNavigate();
+  const location=useLocation();
+  const dispatch=useDispatch()
   const [passwordType, setPasswordType] = useState("password");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
@@ -18,15 +23,20 @@ const Login = () => {
           .email("please provide a valid email address")
           .required("E-mail Required"),
         password: Yup.string()
-          .min(6, "Incorrect password")
+          .min(4, "Incorrect password")
           .required("password Required"),
       }),
-      onSubmit: (values) => {
-        console.log(values);
+      onSubmit: async (values) => {
+        // console.log(values);
+        let userData = values;
+        await dispatch(login(userData));
+        navigate(location.state, { replace: true });
       },
     });
 
-
+ const handleNavigate = () => {
+   navigate("/");
+ };
  const handlePassword = () => {
    if (passwordType === "password") {
      setPasswordType("text");
@@ -41,7 +51,7 @@ const Login = () => {
           <div className="auth-heading">
             <Link to="/login">Sign In</Link> / <Link to="/signup">Sign Up</Link>
           </div>
-          <img src={img} alt="" />
+          <img onClick={handleNavigate} src={img} alt="" />
           <p className="head-p-tag">
             LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!
           </p>

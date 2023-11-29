@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import "./user.css";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/CAT01.svg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { signup } from "../../Redux/auth/action";
 
 const SignUp = () => {
+  const navigate=useNavigate();
+  const location=useLocation();
+  const dispatch=useDispatch()
   const [passwordType, setPasswordType] = useState("password");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
@@ -22,14 +27,18 @@ const SignUp = () => {
           .email("please provide a valid email address")
           .required("E-mail Required"),
         password: Yup.string()
-          .min(6, "Incorrect password")
+          .min(4, "Incorrect password")
           .required("password Required"),
       }),
       onSubmit: (values) => {
         console.log(values);
+        let  userData=values;
+        dispatch(signup(userData)).then(()=>{
+          navigate(location.state,{replace:true})
+        })
       },
     });
-
+// ------------------------------------------
   const handlePassword = () => {
     if (passwordType === "password") {
       setPasswordType("text");
@@ -37,6 +46,10 @@ const SignUp = () => {
     }
     setPasswordType("password");
   };
+  // -----------------------------------------
+  const handleNavigate=()=>{
+    navigate("/")
+  }
   return (
     <div className="auth-wrapper">
       <div className="auth-box">
@@ -44,7 +57,7 @@ const SignUp = () => {
           <div className="auth-heading">
             <Link to="/login">Sign In</Link> / <Link to="/signup">Sign Up</Link>
           </div>
-          <img src={img} alt="" />
+          <img  onClick={handleNavigate} src={img} alt="" />
           <p className="head-p-tag">
             LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!
           </p>

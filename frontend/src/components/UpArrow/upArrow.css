@@ -1,0 +1,22 @@
+.up-arrow{
+    position: fixed;
+    top: 90vh;
+    right: 1%;
+    border-radius: 50px;
+    background-color: red;
+    padding: .1rem .3rem ;
+
+}
+.icon-up{
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+}
+.icon-up:hover{
+    color: red;
+}
+.up-arrow:hover{
+    color: red;
+    border: 1px red solid;
+     background-color: #fff;
+}

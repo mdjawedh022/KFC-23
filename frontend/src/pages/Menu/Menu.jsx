@@ -22,16 +22,7 @@ const Menu = () => {
   useEffect(() => {
     dispatch(getProduct());
   }, [dispatch]);
-  // if (isLoading) {
-  //   return (
-  //     <img
-  //       className="load-img"
-  //       src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzFxM2cxcmpiemx6dXliazA1Ynh1aGVuOHk5ZTFkMDBhN2RsaTIzYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/lNRLsk8q0htMHgrHxb/giphy.gif"
-  //       alt=""
-  //     />
-  //   );
-  // } 
-
+ 
   // Filter products based on the search query
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchQuery.toLowerCase())

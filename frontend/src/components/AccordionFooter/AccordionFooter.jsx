@@ -108,3 +108,4 @@ const AccordionFooter = () => {
 };
 
 export default AccordionFooter;
+

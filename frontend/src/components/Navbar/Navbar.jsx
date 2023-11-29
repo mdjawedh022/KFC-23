@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./navbar.css"
-import { Link} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import SideBar from '../SideBar/SideBar'
 import {RxHamburgerMenu} from "react-icons/rx"
 import Location from '../Location/Location'
@@ -11,8 +11,11 @@ import account_icon from "../../assets/Account_Icon.svg"
 
 const Navbar = () => {
 const [sidebar,setSidebar]=useState(false);
+const navigate=useNavigate()
 
-
+const handelRouterToCart=()=>{
+  navigate('/cart')
+}
 
     return (
       <>
@@ -41,7 +44,7 @@ const [sidebar,setSidebar]=useState(false);
             <div className="cart-price">
               <p>₹ 0</p>
 
-              <div className="logocart">
+              <div onClick={handelRouterToCart} className="logocart">
                 <img src={bucket} alt="" />
                 <p id="cartitems">0</p>
               </div>

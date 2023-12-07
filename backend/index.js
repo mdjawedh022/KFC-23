@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/users",AuthRouter)
 app.use("/product",ProductRouter)
-app.use("/cart",CartRouter)
+app.use("/carts",CartRouter)
 app.use("/seller",SellerRouter)
 
 app.listen(process.env.port,async()=>{

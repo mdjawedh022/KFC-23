@@ -50,6 +50,16 @@ CartRouter.delete("/delete/:id", async (req, res) => {
   }
 });
 
+CartRouter.delete("/delete", async (req, res) => {
+  try {
+    await CartModel.deleteMany({});
+
+    res.send({ msg: "Cart cleared!" });
+  } catch (err) {
+    res.send({ msg: "Internal server Error", err });
+  }
+});
+
 module.exports = {
   CartRouter,
 };

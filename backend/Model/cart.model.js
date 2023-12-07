@@ -7,14 +7,14 @@ const CartSchema = mongoose.Schema(
     price: { type: Number, required: true },
     description: { type: String, required: true },
     quantity: { type: Number, default: 1 },
-    userId: { type: String, required: true },
+    // userId: { type: String, required: true },
   },
   {
     versionKey: false,
   }
 );
 
-const CartModel = mongoose.model("cart", CartSchema);
+const CartModel = mongoose.model("carts", CartSchema);
 
 module.exports = {
   CartModel,

@@ -7,11 +7,14 @@ import Location from '../Location/Location'
 import cat01 from "../../assets/CAT01.svg"
 import bucket from "../../assets/bucket_cart_icon.svg"
 import account_icon from "../../assets/Account_Icon.svg"
+import { useSelector } from 'react-redux'
 
 
 const Navbar = () => {
 const [sidebar,setSidebar]=useState(false);
-const navigate=useNavigate()
+const navigate=useNavigate();
+//  const dispatch = useDispatch();
+ const { cart } = useSelector((state) => state.cartReducer);
 
 const handelRouterToCart=()=>{
   navigate('/cart')
@@ -37,16 +40,23 @@ const handelRouterToCart=()=>{
             </ul>
           </div>
           <div className="navbar-login-cart">
-            <Link className="sigup-login-wrapper" to='/login'>
+            <Link className="sigup-login-wrapper" to="/login">
               <img src={account_icon} alt="account" />
               <h5>Sign In</h5>
             </Link>
             <div className="cart-price">
-              <p>₹ 0</p>
+              <p>
+                ₹{" "}
+                {cart
+                  .reduce((acc, item) => acc + item.price * item.quantity, 0)
+                  .toFixed(2)}
+              </p>
 
               <div onClick={handelRouterToCart} className="logocart">
                 <img src={bucket} alt="" />
-                <p id="cartitems">0</p>
+                <p id="cartitems">
+                  {cart.reduce((acc, item) => acc + item.quantity, 0)}
+                </p>
               </div>
             </div>
           </div>

@@ -21,7 +21,7 @@ export const getProduct = () => (dispatch) => {
     .get(`http://localhost:3030/product`)
     .then((res) => {
       dispatch(getproductSu(res.data.products));
-      console.log(res);
+      // console.log(res);
     })
     .catch((err) => {
       dispatch(getproductEr(err));

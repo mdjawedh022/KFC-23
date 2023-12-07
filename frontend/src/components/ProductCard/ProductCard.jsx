@@ -1,8 +1,19 @@
-import React from 'react'
-import "./productCard.css"
-const ProductCard = ({productData}) => {
-      const { _id, category, images, title, price, description, quantity } =
-        productData;
+import React from "react";
+import "./productCard.css";
+import { postCart } from "../../Redux/Cart/action";
+import { useDispatch } from "react-redux";
+
+const ProductCard = ({ productData }) => {
+  const dispatch = useDispatch();
+
+  const { _id, category, images, title, price, description } = productData;
+
+  const handleAddToCart = () => {
+    dispatch(postCart(productData));
+      // console.log(productData);
+      alert("item add successfully in cart")
+  };
+
   return (
     <div className="card-menu" key={_id}>
       <div className="card1-menu">
@@ -20,7 +31,7 @@ const ProductCard = ({productData}) => {
 
         <p className="price-menu">₹{price}</p>
         <p className="des-menu">{description}</p>
-        <button className='btn-menu'>
+        <button className="btn-menu" onClick={handleAddToCart}>
           Add to Cart{" "}
           <img
             src="https://online.kfc.co.in/static/media/Icon_Add_to_Cart.58b87a9b.svg"
@@ -30,6 +41,6 @@ const ProductCard = ({productData}) => {
       </div>
     </div>
   );
-}
+};
 
-export default ProductCard
+export default ProductCard;

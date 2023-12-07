@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../../Redux/products/action";
 import { IoIosSearch } from "react-icons/io";
 import "./menu.css";
-import { Link } from "react-scroll";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Navbar from "../../components/Navbar/Navbar";
 import Footers from "../../components/Footer/Footer";
-const Menu = () => {  
+import Scroll from "../../components/Scroll/Scroll";
+import ResponsiveScroll from "../../components/Scroll/ResponsiveScroll";
+import Loading from "../../components/Loading/Loading";
+const Menu = () => {
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
-  const { products, isLoading } = useSelector(
-    (store) => store.productReducer
-  );
-  console.log(products);
+  const { products, isLoading } = useSelector((store) => store.productReducer);
+  // console.log(products);
 
   const handleSearchQueryChange = (event) => {
     setSearchQuery(event.target.value);
@@ -22,20 +22,17 @@ const Menu = () => {
   useEffect(() => {
     dispatch(getProduct());
   }, [dispatch]);
- 
+
   // Filter products based on the search query
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+
   return (
     <>
       {isLoading ? (
-        <img
-          className="load-img"
-          src="https://online.kfc.co.in/KFC_Loader_Gif.gif"
-          alt=""
-        />
+        <Loading />
       ) : (
         <>
           <Navbar />
@@ -48,92 +45,10 @@ const Menu = () => {
                   <div className="line3"></div>
                 </div>
                 <h1>KFC MENU</h1>
-                <div className="list-menu-link">
-                  <Link
-                    to="PERI PERI MATCH SPECIALS"
-                    smooth={true}
-                    duration={2000}
-                  >
-                    <p>PERI PERI MATCH SPECIALS</p>
-                  </Link>
-                  <Link to="CHICKEN ROLLS" smooth={true} duration={2000}>
-                    <p>CHICKEN ROLLS</p>
-                  </Link>
-                  <Link to="CHICKEN BUCKETS" smooth={true} duration={2000}>
-                    <p>CHICKEN BUCKETS</p>
-                  </Link>
-                  <Link to="BIRYANI BUCKETS" smooth={true} duration={2000}>
-                    <p>BIRYANI BUCKETS</p>
-                  </Link>
-                  <Link to="BOX MEALS" smooth={true} duration={2000}>
-                    <p>BOX MEALS</p>
-                  </Link>
-                  <Link to="BURGERS" smooth={true} duration={2000}>
-                    <p>BURGERS</p>
-                  </Link>
-                  <Link to="SNACKS" smooth={true} duration={2000}>
-                    <p>SNACKS</p>
-                  </Link>
-                  <Link to="BEVERAGES" smooth={true} duration={2000}>
-                    <p>BEVERAGES</p>
-                  </Link>
-                </div>
+                <Scroll />
               </div>
               {/* ------responsive----------------- */}
-              <div className="responsive-menu">
-                <ul>
-                  <li>
-                    {" "}
-                    <Link
-                      to="PERI PERI MATCH SPECIALS"
-                      smooth={true}
-                      duration={2000}
-                    >
-                      PERI PERI MATCH SPECIALS
-                    </Link>
-                  </li>
-                  <li>
-                    {" "}
-                    <Link to="CHICKEN ROLLS" smooth={true} duration={2000}>
-                      CHICKEN ROLLS
-                    </Link>
-                  </li>
-                  <li>
-                    {" "}
-                    <Link to="CHICKEN BUCKETS" smooth={true} duration={2000}>
-                      CHICKEN BUCKETS
-                    </Link>
-                  </li>
-                  <li>
-                    {" "}
-                    <Link to="BIRYANI BUCKETS" smooth={true} duration={2000}>
-                      BIRYANI BUCKETS
-                    </Link>
-                  </li>
-                  <li>
-                    {" "}
-                    <Link to="BOX MEALS" smooth={true} duration={2000}>
-                      BOX MEALS
-                    </Link>
-                  </li>
-                  <li>
-                    {" "}
-                    <Link to="BURGERS" smooth={true} duration={2000}>
-                      BURGERS
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="SNACKS" smooth={true} duration={2000}>
-                      SNACKS
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="BEVERAGES" smooth={true} duration={2000}>
-                      BEVERAGES
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+              <ResponsiveScroll />
               <div className="menu-list-items">
                 <div className="menu-search">
                   <IoIosSearch className="icon-search" />{" "}

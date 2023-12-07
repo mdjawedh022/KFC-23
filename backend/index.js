@@ -3,8 +3,10 @@ const { connection } = require("./Utils/db");
 require("dotenv").config();
 const app = express();
 const cors=require('cors');
-const { SellerRouter } = require("./Routes/sellerProduct.route");
-const { ProductRouter } = require("./Routes/product.route");
+const { SellerRouter } = require("./Routes/sellerProduct.routes");
+const { ProductRouter } = require("./Routes/product.routes");
+const { AuthRouter } = require("./Routes/auth.routes");
+const { CartRouter } = require("./Routes/cart.routes");
 
 
 
@@ -14,7 +16,9 @@ app.get("/",(req,res)=>{
 
 app.use(cors());
 app.use(express.json());
+app.use("/users",AuthRouter)
 app.use("/product",ProductRouter)
+app.use("/cart",CartRouter)
 app.use("/seller",SellerRouter)
 
 app.listen(process.env.port,async()=>{

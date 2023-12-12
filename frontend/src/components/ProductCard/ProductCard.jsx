@@ -1,19 +1,23 @@
 import React from "react";
 import "./productCard.css";
+import { useDispatch, useSelector } from "react-redux";
 import { postCart } from "../../Redux/Cart/action";
-import { useDispatch } from "react-redux";
 
 const ProductCard = ({ productData }) => {
   const dispatch = useDispatch();
-
+  const { cart } = useSelector((state) => state.cartReducer);
   const { _id, category, images, title, price, description } = productData;
 
-  const handleAddToCart = () => {
-    dispatch(postCart(productData));
-      // console.log(productData);
-      alert("item add successfully in cart")
-  };
+  const handleAddToCart = (_id) => {
+    const isProductInCart = cart.filter((item) => item._id === _id);
 
+    if (isProductInCart.length === 0) {
+      dispatch(postCart(productData));
+      alert("Product added to the cart successfully!");
+    } else {
+      alert("This item is already in your cart!");
+    }
+  };
   return (
     <div className="card-menu" key={_id}>
       <div className="card1-menu">
@@ -31,7 +35,7 @@ const ProductCard = ({ productData }) => {
 
         <p className="price-menu">₹{price}</p>
         <p className="des-menu">{description}</p>
-        <button className="btn-menu" onClick={handleAddToCart}>
+        <button className="btn-menu" onClick={() => handleAddToCart(_id)}>
           Add to Cart{" "}
           <img
             src="https://online.kfc.co.in/static/media/Icon_Add_to_Cart.58b87a9b.svg"

@@ -163,7 +163,7 @@ import Loading from "../../components/Loading/Loading";
                       <p>
                         GST <span>10.96</span>
                       </p>
-                      <button>Checkout</button>
+                      <button onClick={()=>navigate('/checkout')}>Checkout</button>
                     </div>
                   </div>
                 )}

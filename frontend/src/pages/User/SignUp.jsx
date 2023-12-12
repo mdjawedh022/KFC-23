@@ -8,9 +8,9 @@ import * as Yup from "yup";
 import { signup } from "../../Redux/auth/action";
 
 const SignUp = () => {
-  const navigate=useNavigate();
-  const location=useLocation();
-  const dispatch=useDispatch()
+  const navigate = useNavigate();
+  const location = useLocation();
+  const dispatch = useDispatch();
   const [passwordType, setPasswordType] = useState("password");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
@@ -32,13 +32,9 @@ const SignUp = () => {
       }),
       onSubmit: (values) => {
         console.log(values);
-        let  userData=values;
-        dispatch(signup(userData)).then(()=>{
-          navigate(location.state,{replace:true})
-        })
       },
     });
-// ------------------------------------------
+  // ------------------------------------------
   const handlePassword = () => {
     if (passwordType === "password") {
       setPasswordType("text");
@@ -47,9 +43,9 @@ const SignUp = () => {
     setPasswordType("password");
   };
   // -----------------------------------------
-  const handleNavigate=()=>{
-    navigate("/")
-  }
+  const handleNavigate = () => {
+    navigate("/");
+  };
   return (
     <div className="auth-wrapper">
       <div className="auth-box">
@@ -57,7 +53,7 @@ const SignUp = () => {
           <div className="auth-heading">
             <Link to="/login">Sign In</Link> / <Link to="/signup">Sign Up</Link>
           </div>
-          <img  onClick={handleNavigate} src={img} alt="" />
+          <img onClick={handleNavigate} src={img} alt="" />
           <p className="head-p-tag">
             LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!
           </p>

@@ -28,9 +28,7 @@ const navigate=useNavigate();
       }),
       onSubmit: async (values) => {
         // console.log(values);
-        let userData = values;
-        await dispatch(login(userData));
-        navigate(location.state, { replace: true });
+       
       },
     });
 

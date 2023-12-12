@@ -1,0 +1,87 @@
+.checkout-main{
+  margin-top: 6.9rem;
+}
+.lines01{
+  width: 80%;
+  margin: auto;
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  padding-bottom: 50px;
+}
+.line10 {
+  height: 45px;
+  width: 17px;
+  background-color: #e4002b;
+}
+.checkout-main1{
+ width: 81%;
+  margin: auto;
+}
+.checkout-main1 h2{
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+}
+.checkout-wrapper {
+  display: grid;
+  width: 81%;
+  grid-template-columns: repeat(2,50% 28%);
+  gap: 10%;
+  margin: auto;
+  align-items: flex-start;
+}
+.checkout-wrapper .form-checkout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  background-color: #f8f7f6;
+  padding: 1.5rem 2rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+.checkout-wrapper .form-checkout input{
+    padding: .5rem .5rem;
+    margin-top: 1rem;
+    border:none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    background-color: transparent;
+}
+.cashonDelivery{
+  display: flex;
+  gap: 5px;
+  align-items:flex-end;
+  /* border:solid; */
+  font-size: 1.2rem;
+}
+
+@media screen  and (max-width:1050px){
+  .checkout-wrapper {
+  
+  width: 81%;
+  grid-template-columns: repeat(2,55% 28%);
+  gap: 5%;
+  align-items: flex-start;
+}
+}
+@media screen  and (max-width:850px){
+ .checkout-main{
+  margin-top: 2rem;
+}
+  .checkout-wrapper { 
+  width: 81%;
+  grid-template-columns: repeat(1,1fr);
+  gap: 5%;
+  align-items: flex-start;
+}
+}
+@media screen  and (max-width:350px){
+  .checkout-wrapper {
+  
+  width: 95%;
+  grid-template-columns: repeat(1,1fr);
+  gap: 5%;
+}}

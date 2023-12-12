@@ -1,9 +1,9 @@
 const express = require("express");
 const { CheckoutModel } = require("../Model/checkout.model");
 
-const CheckRouter = express.Router();
+const CheckoutRouter = express.Router();
 
-CheckRouter.get("/", async (req, res) => {
+CheckoutRouter.get("/", async (req, res) => {
   try {
     const getCheckout = await CheckoutModel.find();
     res.send(getCheckout);
@@ -13,7 +13,7 @@ CheckRouter.get("/", async (req, res) => {
 });
 
 // ----------------------------------
-CheckRouter.post("/post", async (req, res) => {
+CheckoutRouter.post("/post", async (req, res) => {
   try {
     const checkout = new CheckoutModel(req.body);
     await checkout.save();
@@ -23,7 +23,7 @@ CheckRouter.post("/post", async (req, res) => {
   }
 });
 // -----------------------------------------
-CheckRouter.delete("/delete", async (req, res) => {
+CheckoutRouter.delete("/delete", async (req, res) => {
   try {
     await CheckoutModel.deleteMany({});
 
@@ -33,5 +33,5 @@ CheckRouter.delete("/delete", async (req, res) => {
   }
 });
 module.exports={
-CheckRouter
+CheckoutRouter ,
 }

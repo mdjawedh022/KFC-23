@@ -7,7 +7,7 @@ const { SellerRouter } = require("./Routes/sellerProduct.routes");
 const { ProductRouter } = require("./Routes/product.routes");
 const { AuthRouter } = require("./Routes/auth.routes");
 const { CartRouter } = require("./Routes/cart.routes");
-const { CheckRouter } = require("./Routes/checkout.routes");
+const {CheckoutRouter } = require("./Routes/checkout.routes");
 
 
 
@@ -21,7 +21,7 @@ app.use("/users",AuthRouter)
 app.use("/product",ProductRouter)
 app.use("/carts",CartRouter)
 app.use("/seller",SellerRouter)
-app.use("/checkout",CheckRouter)
+app.use("/checkout",CheckoutRouter)
 
 app.listen(process.env.port,async()=>{
  try {

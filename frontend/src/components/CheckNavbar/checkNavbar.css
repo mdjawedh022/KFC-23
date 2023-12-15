@@ -21,6 +21,9 @@
 .checkNavbar-second a {
   display: none;
 }
+.checkNavbar-second img{
+  cursor: pointer;
+}
 .checkNavbar-first button {
   padding: 0.9rem 3rem;
   border-radius: 40px;

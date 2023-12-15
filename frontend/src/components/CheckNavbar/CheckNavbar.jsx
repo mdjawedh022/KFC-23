@@ -20,7 +20,7 @@ const CheckNavbar = () => {
             <IoIosArrowBack className="backtocart" onClick={handleBacktocart} />
           </div>
           <div className="checkNavbar-second">
-            <img src={cat01} alt="" />
+            <img src={cat01} alt="" onClick={()=>navigate('/')}/>
             <Link>CHECKOUT</Link>
           </div>
           <Link className="checkNavbar-third">

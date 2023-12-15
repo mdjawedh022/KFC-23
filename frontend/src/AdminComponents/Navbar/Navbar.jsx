@@ -1,28 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
-  BsFillBellFill,
-  BsFillEnvelopeFill,
   BsPersonCircle,
-  BsSearch,
   BsJustify,
 } from "react-icons/bs";
 import "./navbar.css";
+import cat01 from "../../assets/CAT01.svg";
+import { Link } from 'react-router-dom';
+import Sidebar from '../Sidebar/Sidebar';
 
-const Navbar = ({ OpenSidebar }) => {
+const Navbar = () => {
+    const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
+
+    const OpenSidebar = () => {
+      setOpenSidebarToggle(!openSidebarToggle);
+    };
   return (
-    <header className="header">
-      <div className="menu-icon-header">
-        <BsJustify className="icons" onClick={OpenSidebar} />
-      </div>
-      <div className="header-left">
-        <BsSearch className="icons" />
-      </div>
-      <div className="header-right">
-        <BsFillBellFill className="icons" />
-        <BsFillEnvelopeFill className="icons" />
-        <BsPersonCircle className="icons" />
-      </div>
-    </header>
+    <>
+      <header className="header">
+        <div className="menu-icon-header">
+          <BsJustify className="icons" onClick={OpenSidebar} />
+        </div>
+        <div className="header-left">
+          <Link to="/">
+            <img src={cat01} alt="logo" />
+          </Link>
+        </div>
+        <div className="header-right">
+          <BsPersonCircle className="icons" />
+        </div>
+      </header>
+      <Sidebar
+        openSidebarToggle={openSidebarToggle}
+        OpenSidebar={OpenSidebar}
+      />
+    </>
   );
 };
 

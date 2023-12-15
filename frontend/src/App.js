@@ -17,15 +17,15 @@ let timer=setTimeout(()=>{
   },[])
   return (
     <>
-      {/* {loading ? (
+      {loading ? (
         <Loading />
       ) : (
         <div className="App">
-          <Routing />
+          {/* <Routing /> */}
+            <Dashboard/>
           <UpArrow />
         </div>
-      )} */}
-      <Dashboard/>
+      )}
     </>
   );
 }

@@ -3,8 +3,6 @@ import "./App.css";
 import Routing from "./routes/Routing";
 import UpArrow from "./components/UpArrow/UpArrow";
 import Loading from "./components/Loading/Loading";
-import Dashboard from "./Admin/Dashboard/Dashboard";
-
 function App() {
 const [loading,setLoading]=useState(true);
 
@@ -21,8 +19,7 @@ let timer=setTimeout(()=>{
         <Loading />
       ) : (
         <div className="App">
-          {/* <Routing /> */}
-            <Dashboard/>
+          <Routing />   
           <UpArrow />
         </div>
       )}

@@ -4,7 +4,7 @@ import {
   BsJustify,
 } from "react-icons/bs";
 import "./navbar.css";
-import cat01 from "../../assets/CAT01.svg";
+import cat01 from "../../../assets/CAT01.svg";
 import { Link } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 

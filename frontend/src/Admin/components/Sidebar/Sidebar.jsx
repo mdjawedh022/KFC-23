@@ -28,7 +28,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
 
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <Link>
+          <Link to="/admin">
             <BsGrid1X2Fill className="icons" /> Dashboard
           </Link>
         </li>
@@ -44,12 +44,12 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link>
+          <Link to="/product">
             <BsFillArchiveFill className="icons" /> Products
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link>
+          <Link to="/add">
             <BsMenuButtonWideFill className="icons" /> Add
           </Link>
         </li>

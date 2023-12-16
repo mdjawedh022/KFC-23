@@ -1,4 +1,4 @@
-import { GET_SELLER_PRODUCT_FAILED, GET_SELLER_PRODUCT_REQUEST, GET_SELLER_PRODUCT_SUCCESS } from "./actionTypes"
+import { DELETE_SELLER_PRODUCT_SUCCESS, GET_SELLER_PRODUCT_FAILED, GET_SELLER_PRODUCT_REQUEST, GET_SELLER_PRODUCT_SUCCESS } from "./actionTypes"
 
 const initialState={
     productAdmin:[],
@@ -14,6 +14,8 @@ switch(type){
     return{...state,isLoading:false, productAdmin:payload}
     case GET_SELLER_PRODUCT_FAILED:
         return{...state,isLoading:false,isError:true}
+        case DELETE_SELLER_PRODUCT_SUCCESS:
+            return{...state ,isLoading:false}
     default:
         return state
 }

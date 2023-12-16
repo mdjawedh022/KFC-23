@@ -21,7 +21,7 @@ const Navbar = () => {
           <BsJustify className="icons" onClick={OpenSidebar} />
         </div>
         <div className="header-left">
-          <Link to="/">
+          <Link to="/admin">
             <img src={cat01} alt="logo" />
           </Link>
         </div>

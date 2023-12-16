@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./home.css";
 import {
   BsFillArchiveFill,
@@ -19,8 +19,18 @@ import {
   Line,
 } from "recharts";
 import Navbar from "../components/Navbar/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { getSellerProduct } from "../../Redux/Sellerproduct/action";
 
 function Dashboard() {
+  const dispatch = useDispatch();
+ const { productAdmin } = useSelector(
+   (state) => state.sellerProduct
+ );
+ //   console.log(productAdmin);
+ useEffect(() => {
+   dispatch(getSellerProduct());
+ }, [dispatch]);
   const data = [
     {
       name: "Page A",
@@ -65,6 +75,7 @@ function Dashboard() {
       amt: 2100,
     },
   ];
+const cat = productAdmin.filter((elem) => elem.cate);
 
   return (
     <>
@@ -81,14 +92,14 @@ function Dashboard() {
                 <h3>PRODUCTS</h3>
                 <BsFillArchiveFill className="card_icon" />
               </div>
-              <h1>300</h1>
+              <h1>{productAdmin.length}</h1>
             </div>
             <div className="card">
               <div className="card-inner">
                 <h3>CATEGORIES</h3>
                 <BsFillGrid3X3GapFill className="card_icon" />
               </div>
-              <h1>12</h1>
+              <h1>{cat.length}</h1>
             </div>
             <div className="card">
               <div className="card-inner">

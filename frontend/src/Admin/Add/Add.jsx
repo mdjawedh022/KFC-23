@@ -1,39 +1,39 @@
 import React, { useState } from "react";
 import "./add.css";
 import Navbar from "../components/Navbar/Navbar"
+import { useDispatch } from "react-redux";
+import { postSeller } from "../../Redux/Add/action";
 const Add = () => {
-  const [formData, setFormData] = useState({
-    images: "",
-    title: "",
-    category: "",
-    price: "",
-    description: "",
-    cate: "",
-    sellerId: "",
-  });
+const dispatch=useDispatch()
+const [images,setImages]=useState('');
+const [title,setTitle]=useState('');
+const [category,setCategory]=useState('');
+const [price, setPrice] = useState("");
+const [description,setDescription]=useState('');
+const [cate,setCate]=useState('');
+const [sellerId,setSellerId]=useState('');
 
-  const handleChange = (e) => {
-    // const { name, value } = e.target;
-    // setFormData((prevData) => ({
-    //   ...prevData,
-    //   [name]: value,
-    // }));
-    setFormData(e.target.value)
-  };
-
-  const handleSubmit = () => {
-    console.log("Form Data Submitted:", formData);
-    //  setFormData({
-    //    images: "",
-    //    title: "",
-    //    category: "",
-    //    price: "",
-    //    description: "",
-    //    cate: "",
-    //    sellerId: "",
-    //  });
-  };
-
+ const handleSubmit = (e) => {
+   e.preventDefault();
+   const data = {
+     images,
+     title,
+     category,
+     price,
+     description,
+     cate,
+     sellerId,
+   };
+  //  console.log("Form Data Submitted:",data )
+   dispatch(postSeller(data));
+   setImages("");
+   setTitle("");
+   setCategory("");
+   setPrice("");
+   setDescription("");
+   setCate("");
+   setSellerId("");
+ };
   return (
     <>
       <div className="grid-container">
@@ -45,23 +45,23 @@ const Add = () => {
               placeholder="enter url..."
               required
               name="images"
-              value={formData.images}
-              onChange={handleChange}
+              value={images}
+              onChange={(e) => setImages(e.target.value)}
             />
             <input
               type="text"
               name="title"
               placeholder="enter title..."
-              value={formData.title}
+              value={title}
               required
-              onChange={handleChange}
+              onChange={(e) => setTitle(e.target.value)}
             />
             <select
               id=""
               required
               name="category"
-              onChange={handleChange}
-              value={formData.category}
+              onChange={(e) => setCategory(e.target.value)}
+              value={category}
             >
               <option value="">select category...</option>
               <option value="Nonveg">Nonveg</option>
@@ -72,22 +72,23 @@ const Add = () => {
               name="price"
               placeholder="enter price..."
               required
-              value={formData.price}
-              onChange={handleChange}
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
             />
             <input
               type="text"
               name="description"
               placeholder="enter description..."
               required
-              value={formData.description}
-              onChange={handleChange}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
             <select
               name="cate"
               id="cate"
-              value={formData.cate}
-              onChange={handleChange}
+              value={cate}
+              onChange={(e) => setCate(e.target.value)}
+              required
             >
               <option value="">select variety...</option>
               <option value="peri peri match specials">
@@ -106,8 +107,8 @@ const Add = () => {
               name="sellerId"
               placeholder="enter sellerId "
               required
-              value={formData.sellerId}
-              onChange={handleChange}
+              value={sellerId}
+              onChange={(e) => setSellerId(e.target.value)}
             />
             <button type="submit">Add</button>
           </form>

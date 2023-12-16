@@ -1,12 +1,11 @@
 const express = require("express");
 const { ProductModel } = require("../Model/product.model");
-
 const SellerRouter = express.Router();
 
 SellerRouter.get("/get", async (req, res) => {
   try {
-    const { sellerId } = req.body;
-    const sellerData = await ProductModel.find({ sellerId });
+    // const { sellerId } = req.body;
+    const sellerData = await ProductModel.find();
     res.send(sellerData);
   } catch (error) {
     res.send({ msg: "Something went wrong. Please try again later", error });

@@ -5,10 +5,10 @@ const CartRouter = express.Router();
 
 // -----------get cart data--------------
 CartRouter.get("/", async (req, res) => {
+  const {userId}=req.body
   try {
-    const { usedId } = req.body;
-    const dataCart = await CartModel.find({ usedId });
-    res.send(dataCart);
+    const dataCart = await CartModel.find({ userId });
+    res.status(200).send(dataCart);
   } catch (err) {
     res.send({ msg: "Something went wrong!", err });
   }

@@ -1,15 +1,14 @@
-const express =require("express");
-const { AuthModel}=require("../Model/auth.model");
+const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
-const AuthRouter=express.Router();
+const { AuthModel } = require("../Model/auth.model");
+const AuthRouter = express.Router();
 
 AuthRouter.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, phone, password } = req.body;
   try {
     bcrypt.hash(password, 4, async (err, hash) => {
-      const user = new AuthModel({ name, email, password: hash });
+      const user = new AuthModel({ name, email, phone, password: hash });
       await user.save();
       res.send({ msg: "user has been registered" });
     });
@@ -19,28 +18,32 @@ AuthRouter.post("/register", async (req, res) => {
   }
 });
 
-
-AuthRouter.post("/login",async(req,res)=>{
-    const {email,password}=req.body;
-    try{
-const user=await AuthModel.find({email});
-if(user.length>0){
-    bcrypt.compare(password,user[0].password,(err,result)=>{
-        if(result){
-            const token =jwt.sign({userId:user[0]._id},"kfc");
-            res.send({msg:"Login Successful","token":token,"user":user[0].name}) 
+AuthRouter.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await AuthModel.find({ email });
+    if (user.length > 0) {
+      bcrypt.compare(password, user[0].password, (err, result) => {
+        if (result) {
+          const token = jwt.sign({ userId: user[0]._id }, "kfc");
+          res.send({
+            msg: "Login Successful",
+            token: token,
+            user: user[0].name,
+          });
         } else {
-            res.send({msg:"Wrong Credential!"});
+          res.send({ msg: "Wrong Credntials" });
         }
-    })
-} else {
-    res.send({msg:"wrong Credential","err":err.message})
-}
-    }catch(err){
-        res.send({ msg: "Something went Wrong", "err": err.message });
+      });
+    } else {
+      res.send({ msg: "Wrong Credntials", err: err.message });
     }
-})
+  } catch (err) {
+    res.send({ msg: "Something went Wrong", error: err.message });
+  }
+});
 
-module.exports={
-    AuthRouter
-}
+
+module.exports = {
+ AuthRouter,
+};

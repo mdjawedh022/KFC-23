@@ -15,7 +15,7 @@ import {
 } from "./actionType";
 
 const postCartReq = () => ({ type: POST_CART_REQUEST });
-const postCartSu = (payload) => ({ type: POST_CART_SUCCESS, payload });
+const postCartSu = () => ({ type: POST_CART_SUCCESS});
 const postCartEr = () => ({ type: POST_CART_FAILED });
 
 const getCartReq = () => ({ type: GET_CART_REQUEST });
@@ -30,28 +30,35 @@ const deleteCartReq = () => ({ type: DELETE_CART_REQUEST });
 const deleteCartSu = () => ({ type: DELETE_CART_SUCCESS });
 const deleteCartEr = () => ({ type: DELETE_CART_FAILED });
 // ------------------------------------------------------
-export const postCart = (productData) => async (dispatch) => {
+ axios.defaults.headers = {
+   "Content-Type": "application/json",
+   Authorization:localStorage.getItem("token")
+
+ };
+//  console.log(localStorage.getItem("token"))
+export const postCart = (data) => async (dispatch) => {
   dispatch(postCartReq());
 
   try {
     const res = await axios.post(
-      "http://localhost:3030/carts/post",
-      productData
+      "http://localhost:8080/carts/post",
+      data
     );
-     dispatch(getCart()); 
     dispatch(postCartSu(res.data));
-    console.log(res.data)
+    dispatch(getCart())
+    console.log(res)
   } catch (err) {
     console.error(err);
     dispatch(postCartEr());
   }
 };
-// -------------------------------------------
 export const getCart = () => async (dispatch) => {
+  // ------------------------------------------
+ 
   dispatch(getCartReq());
 
   try {
-    const res = await axios.get("http://localhost:3030/carts");
+    const res = await axios.get("http://localhost:8080/carts");
     dispatch(getCartSu(res.data));
   } catch (err) {
     console.error(err);
@@ -63,7 +70,7 @@ export const updateCart = (id, updatedQuantity) => async (dispatch) => {
   dispatch(updateCartReq());
 
   try {
-    await axios.patch(`http://localhost:3030/carts/update/${id}`, {
+    await axios.patch(`http://localhost:8080/carts/update/${id}`, {
       quantity: updatedQuantity,
     });
     dispatch(updateCartSu({ id, quantity: updatedQuantity }));
@@ -78,7 +85,7 @@ export const deleteCart = (id) => async (dispatch) => {
   dispatch(deleteCartReq());
 
   try {
-    await axios.delete(`http://localhost:3030/carts/delete/${id}`);
+    await axios.delete(`http://localhost:8080/carts/delete/${id}`);
     dispatch(deleteCartSu());
     dispatch(getCart()) 
   } catch (err) {
@@ -89,7 +96,7 @@ export const deleteCart = (id) => async (dispatch) => {
 // --------------------------------------------
 export const alldataDelete=()=>async(dispatch)=>{
     try{
-        await axios.delete(`http://localhost:3030/carts/delete`)
+        await axios.delete(`http://localhost:8080/carts/delete`);
           dispatch(getCart()); 
     }catch (err) {
     console.error(err);

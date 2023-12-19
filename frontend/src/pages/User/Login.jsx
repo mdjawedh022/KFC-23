@@ -5,11 +5,11 @@ import img from "../../assets/CAT01.svg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { login} from "../../Redux/auth/action";
+import { loginUser } from "../../Redux/auth/action";
 
 const Login = () => {
 const navigate=useNavigate();
-  const location=useLocation();
+  // const location=useLocation();
   const dispatch=useDispatch()
   const [passwordType, setPasswordType] = useState("password");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
@@ -28,7 +28,9 @@ const navigate=useNavigate();
       }),
       onSubmit: async (values) => {
         // console.log(values);
-       
+       const loginData=values;
+       dispatch(loginUser(loginData));
+       navigate("/")
       },
     });
 
@@ -51,7 +53,7 @@ const navigate=useNavigate();
           </div>
           <img onClick={handleNavigate} src={img} alt="" />
           <p className="head-p-tag">
-            LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!
+            LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR EMAIL!
           </p>
           <div className="input-container">
             <label htmlFor="email">Email</label>

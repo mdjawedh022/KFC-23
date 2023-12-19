@@ -13,6 +13,8 @@ import Update from '../Admin/Add/Update';
 import Product from '../Admin/Product/Product';
 import Register from '../Admin/auth/Register';
 import SignIn from '../Admin/auth/SignIn';
+import Logout from '../pages/User/Logout';
+import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 
 const Routing = () => {
   return (
@@ -23,7 +25,15 @@ const Routing = () => {
         <Route path="/menu" element={<Menu />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          }
+        />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/add" element={<Add />} />

@@ -82,8 +82,9 @@
   margin-bottom: 1rem;
 }
 .cart-data-first {
+  
   display: flex;
-  align-items: start;
+  align-items:flex-start;
   gap: 30px;
 }
 .cart-items-data .cart-data-img {

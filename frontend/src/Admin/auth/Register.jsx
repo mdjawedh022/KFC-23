@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import "./auth.css";
-import { useDispatch } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/CAT01.svg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { signup } from "../../Redux/auth/action";
 
 const Register = () => {
   const navigate=useNavigate();
-  const location=useLocation();
-  const dispatch=useDispatch()
+  // const location=useLocation();
+  // const dispatch=useDispatch()
   const [passwordType, setPasswordType] = useState("password");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
@@ -32,10 +30,10 @@ const Register = () => {
       }),
       onSubmit: (values) => {
         console.log(values);
-        let  userData=values;
-        dispatch(signup(userData)).then(()=>{
-          navigate(location.state,{replace:true})
-        })
+        // let  userData=values;
+        // dispatch(signup(userData)).then(()=>{
+        //   navigate(location.state,{replace:true})
+        // })
       },
     });
 // ------------------------------------------

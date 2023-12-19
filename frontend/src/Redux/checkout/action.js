@@ -14,7 +14,7 @@ dispatch(postCeckoutReq());
 
   try {
     const res = await axios.post(
-      "http://localhost:3030/checkout/post",
+      "http://localhost:8080/checkout/post",
       dataCheck
     ); 
     dispatch(postCeckoutSu(res.data));

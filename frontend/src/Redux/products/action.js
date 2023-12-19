@@ -18,7 +18,7 @@ const getproductEr = () => {
 export const getProduct = () => (dispatch) => {
   dispatch(getproductReq());
   axios
-    .get(`http://localhost:3030/product`)
+    .get(`http://localhost:8080/product`)
     .then((res) => {
       dispatch(getproductSu(res.data.products));
       // console.log(res);

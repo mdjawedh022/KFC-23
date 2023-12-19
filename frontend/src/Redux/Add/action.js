@@ -20,7 +20,7 @@ const postSellerFai = () => ({
 export const postSeller=(data)=>async(dispatch)=>{
    dispatch(postSellerReq())
     try{
-const res = await axios.post(`http://localhost:3030/seller/post`,data);
+const res = await axios.post(`http://localhost:8080/seller/post`, data);
 dispatch(postSellerSuc())
 console.log(res)
     }catch(err){

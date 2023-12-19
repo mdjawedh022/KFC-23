@@ -5,6 +5,13 @@ import "./location.css";
 const Location = () => {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState(false);
+
+ const handleLocationSubmit = () => {
+   // Save the location to local storage
+   localStorage.setItem("userLocation");
+   setOpen(false);
+ };
+
   return (
     <>
       <div className="location-wrapper">

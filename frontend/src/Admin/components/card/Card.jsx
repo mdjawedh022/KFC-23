@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import "./card.css";
 import { useDispatch } from 'react-redux';
 import { deleteSeller } from '../../../Redux/Sellerproduct/action';
 import Update from '../../Add/Update';
+
 const Card = (data) => {
-    const dispatch = useDispatch();
-    const { _id, title, images, description, price, category, cate ,sellerId} = data;
-    const [isUpdating, setIsUpdating] = useState(false);
-    
+  const dispatch = useDispatch();
+  const { _id, title, images, description, price, category, cate, sellerId } = data;
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [card,setCard]=useState(false)
+
   const handleUpdateSeller = () => {
     setIsUpdating(true);
+    setCard(false)
   };
-const handleDeleteSeller=(id)=>{
-    alert("Delete Successfully!")
-    dispatch(deleteSeller(id))
-}
+
+  const handleDeleteSeller = (id) => {
+    alert("Delete Successfully!");
+    dispatch(deleteSeller(id));
+  };
+
   return (
     <>
       {isUpdating ? (
@@ -28,6 +33,7 @@ const handleDeleteSeller=(id)=>{
           cate={cate}
           sellerId={sellerId}
           setIsUpdating={setIsUpdating}
+          setCard={setCard}
         />
       ) : (
         <div className="card-wrapper-admin" key={_id}>
@@ -53,6 +59,6 @@ const handleDeleteSeller=(id)=>{
       )}
     </>
   );
-}
+};
 
 export default Card;

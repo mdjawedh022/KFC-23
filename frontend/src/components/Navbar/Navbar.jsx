@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./navbar.css"
 import { Link, useNavigate} from 'react-router-dom'
 import SideBar from '../SideBar/SideBar'
@@ -8,16 +8,22 @@ import cat01 from "../../assets/CAT01.svg"
 import bucket from "../../assets/bucket_cart_icon.svg"
 import account_icon from "../../assets/Account_Icon.svg"
 import { useSelector } from 'react-redux'
-
+import { FaUserTie } from "react-icons/fa";
 
 const Navbar = () => {
 const [sidebar,setSidebar]=useState(false);
 const navigate=useNavigate();
 //  const dispatch = useDispatch();
  const { cart } = useSelector((state) => state.cartReducer);
+let isAuth = localStorage.getItem("token");
 
 const handelRouterToCart=()=>{
+  if (!isAuth) {
+    alert("login first");
+     navigate("/login");
+  }else{
   navigate('/cart')
+  }
 }
 
     return (
@@ -40,10 +46,25 @@ const handelRouterToCart=()=>{
             </ul>
           </div>
           <div className="navbar-login-cart">
-            <Link className="sigup-login-wrapper" to="/login">
-              <img src={account_icon} alt="account" />
-              <h5>Sign In</h5>
-            </Link>
+            {isAuth ? (
+              <Link
+                className="sigup-login-wrapper"
+                to="/logout"
+                // onClick={handlelogout}
+              >
+                <FaUserTie />
+                <h5>Account</h5>
+              </Link>
+            ) : (
+              <Link
+                className="sigup-login-wrapper"
+                to="/login"
+                // onClick={handlelogout}
+              >
+                <img src={account_icon} alt="account" />
+                <h5>Sign In</h5>
+              </Link>
+            )}
             <div className="cart-price">
               <p>
                 ₹{" "}

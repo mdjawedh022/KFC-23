@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "./user.css";
 import { useDispatch } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/CAT01.svg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { signup } from "../../Redux/auth/action";
+import { userRegister } from "../../Redux/auth/action";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
   const dispatch = useDispatch();
   const [passwordType, setPasswordType] = useState("password");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
@@ -27,11 +27,14 @@ const SignUp = () => {
           .email("please provide a valid email address")
           .required("E-mail Required"),
         password: Yup.string()
-          .min(4, "Incorrect password")
+          .min(6, "Incorrect password")
           .required("password Required"),
       }),
       onSubmit: (values) => {
         console.log(values);
+       const userdata=values;
+       dispatch(userRegister(userdata))
+       navigate("/login");
       },
     });
   // ------------------------------------------
@@ -55,7 +58,7 @@ const SignUp = () => {
           </div>
           <img onClick={handleNavigate} src={img} alt="" />
           <p className="head-p-tag">
-            LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!
+            LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR EMAIL!
           </p>
           <div className="input-container">
             <label htmlFor="name">Name</label>

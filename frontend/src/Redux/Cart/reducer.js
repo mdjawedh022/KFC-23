@@ -36,6 +36,7 @@ export const reducer = (state = initialState, { type, payload }) => {
 
       
     case POST_CART_SUCCESS:
+       return { ...state, isLoading: false };
     case DELETE_CART_SUCCESS:
       return { ...state, isLoading: false };
 

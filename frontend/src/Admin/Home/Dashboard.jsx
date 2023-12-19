@@ -21,9 +21,11 @@ import {
 import Navbar from "../components/Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { getSellerProduct } from "../../Redux/Sellerproduct/action";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
-  const dispatch = useDispatch();
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
  const { productAdmin } = useSelector(
    (state) => state.sellerProduct
  );
@@ -77,6 +79,10 @@ function Dashboard() {
   ];
 const cat = productAdmin.filter((elem) => elem.cate);
 
+
+const handleproductAdmin=()=>{
+  navigate('/product')
+}
   return (
     <>
       <div className="grid-container">
@@ -87,7 +93,7 @@ const cat = productAdmin.filter((elem) => elem.cate);
           </div>
 
           <div className="main-cards">
-            <div className="card">
+            <div className="card" onClick={handleproductAdmin}>
               <div className="card-inner">
                 <h3>PRODUCTS</h3>
                 <BsFillArchiveFill className="card_icon" />

@@ -1,9 +1,9 @@
 const jwt = require("jsonwebtoken");
-const authenticate = (req, res, next) => {
+const adminAuth = (req, res, next) => {
   const token = req.headers.authorization;
 
   if (token) {
-    jwt.verify(token, "kfc", (err, decoded) => {
+    jwt.verify(token, "jawed", (err, decoded) => {
       if (err) {
         res.status(401).send({ msg: "Invalid token" });
       } else {
@@ -17,5 +17,5 @@ const authenticate = (req, res, next) => {
 };
 
 module.exports = {
-  authenticate,
+  adminAuth,
 };

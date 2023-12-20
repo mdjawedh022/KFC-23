@@ -1,14 +1,14 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { AuthModel } = require("../Model/auth.model");
-const AuthRouter = express.Router();
+const { AdminUserModel } = require("../Model/adminUser.model");
+const AdminUserRouter = express.Router();
 
-AuthRouter.post("/register", async (req, res) => {
-  const { name, email ,password } = req.body;
+AdminUserRouter.post("/signup", async (req, res) => {
+  const { name, email,  password } = req.body;
   try {
     bcrypt.hash(password, 4, async (err, hash) => {
-      const user = new AuthModel({ name, email,  password: hash });
+      const user = new AdminUserModel({ name, email, password: hash });
       await user.save();
       res.send({ msg: "user has been registered" });
     });
@@ -18,14 +18,14 @@ AuthRouter.post("/register", async (req, res) => {
   }
 });
 
-AuthRouter.post("/login", async (req, res) => {
+AdminUserRouter.post("/signin", async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await AuthModel.find({ email });
+    const user = await AdminUserModel.find({ email });
     if (user.length > 0) {
       bcrypt.compare(password, user[0].password, (err, result) => {
         if (result) {
-          const token = jwt.sign({ userId: user[0]._id }, "kfc");
+          const token = jwt.sign({ userId: user[0]._id }, "jawed");
           res.send({
             msg: "Login Successful",
             token: token,
@@ -43,7 +43,6 @@ AuthRouter.post("/login", async (req, res) => {
   }
 });
 
-
 module.exports = {
- AuthRouter,
+  AdminUserRouter,
 };

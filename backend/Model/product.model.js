@@ -7,7 +7,7 @@ const ProductSchema = mongoose.Schema({
   price: { type: Number, require: true },
   description: { type: String, require: true },
   cate: { type: String, require: true },
-  sellerId: { type: String, require: true },
+  sellerId: { type: String, require: false},
 },{
     versionKey:false,
 });

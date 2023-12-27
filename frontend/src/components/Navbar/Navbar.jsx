@@ -13,14 +13,20 @@ import { FaUserTie } from "react-icons/fa";
 const Navbar = () => {
 const [sidebar,setSidebar]=useState(false);
 const navigate=useNavigate();
+const [errorToast, setErrorToast] = useState(false);
 //  const dispatch = useDispatch();
  const { cart } = useSelector((state) => state.cartReducer);
 let isAuth = localStorage.getItem("token");
 
 const handelRouterToCart=()=>{
-  if (!isAuth) {
-    alert("login first");
-     navigate("/login");
+  if (!isAuth) { 
+     setErrorToast(true);
+     setTimeout(() => {
+       setErrorToast(false);
+        navigate("/login");
+     }, 2000);
+    
+      
   }else{
   navigate('/cart')
   }
@@ -66,24 +72,38 @@ const handelRouterToCart=()=>{
               </Link>
             )}
             <div className="cart-price">
-              <p>
-                ₹{" "}
-                {cart
-                  .reduce((acc, item) => acc + item.price * item.quantity, 0)
-                  .toFixed(2)}
-              </p>
+              {!isAuth ? (
+                <p className="price-cart">₹ 0</p>
+              ) : (
+                <p className="price-cart">
+                  ₹{" "}
+                  {cart?.reduce((acc, item) => acc + item.price * item.quantity, 0)
+                    .toFixed(2)}
+                </p>
+              )}
 
               <div onClick={handelRouterToCart} className="logocart">
                 <img src={bucket} alt="" />
-                <p id="cartitems">
-                  {cart.reduce((acc, item) => acc + item.quantity, 0)}
-                </p>
+                {!isAuth ? (
+                  <p id="cartitems">0</p>
+                ) : (
+                  <p id="cartitems">
+                    {cart?.reduce((acc, item) => acc + item.quantity, 0)}
+                  </p>
+                )}
               </div>
             </div>
           </div>
         </div>
         <Location />
         {sidebar ? <SideBar setSidebar={setSidebar} /> : null}
+        <div className="toast-container">
+          {errorToast && (
+            <button className="btn-alert-toast1">
+             please login  first!
+            </button>
+          )}
+        </div>
       </>
     );
 }

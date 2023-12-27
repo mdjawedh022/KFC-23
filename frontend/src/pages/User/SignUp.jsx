@@ -112,6 +112,9 @@ const SignUp = () => {
           <button type="submit" className="btn">
             Sign Up
           </button>
+          <hr />
+          <p className="admin-p-tag">If you are Admin user.</p>
+          <button className="admin-btn-tag" onClick={() => navigate("/signin")}>Admin</button>
         </form>
       </div>
     </div>

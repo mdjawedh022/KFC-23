@@ -22,7 +22,7 @@ export const userRegister = (userdata) => async (dispatch) => {
   dispatch(userreque());
   try {
     const res = await axios.post(
-      `http://localhost:8080/users/register`,
+      `https://vast-pear-dalmatian-kit.cyclic.app/users/register`,
       userdata
     );
     dispatch(usersucce());
@@ -37,7 +37,7 @@ export const loginUser = (loginData) => async (dispatch) => {
   dispatch(loginreque());
   try {
     const res = await axios.post(
-      `http://localhost:8080/users/login`,
+      `https://vast-pear-dalmatian-kit.cyclic.app/users/login`,
       loginData
     );
     dispatch(loginsucce());

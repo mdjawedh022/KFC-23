@@ -2,8 +2,14 @@ import React from "react";
 import "./sideBar.css";
 import { AiOutlineClose } from "react-icons/ai";
 import {HiArrowLongRight} from "react-icons/hi2"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaUserTie } from "react-icons/fa";
+
+
 const SideBar = ({ setSidebar }) => {
+  const navigate=useNavigate()
+  let isAuth = localStorage.getItem("token");
+
   return (
     <div className="sidebar-wrapper">
       <div className="modal-inner">
@@ -29,16 +35,28 @@ const SideBar = ({ setSidebar }) => {
           <h2 className="sidebar-header">
             LET'S GET <br /> COOKIN'
           </h2>
-          <div className="sidebar-account">
-            <img
-              src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg"
-              alt="account"
-            />
-            <p>
-              Sign in / Sign up{" "}
-              <HiArrowLongRight style={{ marginTop: "5px" }} />
-            </p>
-          </div>
+
+          {isAuth ? (
+            <div
+              className="sidebar-account"
+              onClick={() => navigate("/logout")}
+            >
+              <FaUserTie />
+              <h5>Account</h5>
+            </div>
+          ) : (
+            <div className="sidebar-account" onClick={() => navigate("/login")}>
+              <img
+                src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg"
+                alt="account"
+              />
+              <p>
+                Sign in / Sign up{" "}
+                <HiArrowLongRight style={{ marginTop: "5px" }} />
+              </p>
+            </div>
+          )}
+
           {/* ....................... */}
           <div className="menu-sidebar">
             <div>

@@ -29,8 +29,7 @@ const navigate=useNavigate();
       onSubmit: async (values) => {
         // console.log(values);
        const loginData=values;
-       dispatch(loginUser(loginData));
-       navigate("/")
+       dispatch(loginUser(loginData)).then(() => navigate("/"));
       },
     });
 
@@ -92,6 +91,11 @@ const navigate=useNavigate();
           </p>
           <button type="submit" className="btn">
             Login
+          </button>
+          <hr />
+          <p className="admin-p-tag">If you are admin user.</p>
+          <button className="admin-btn-tag" onClick={() => navigate("/signin")}>
+            Admin
           </button>
         </form>
       </div>

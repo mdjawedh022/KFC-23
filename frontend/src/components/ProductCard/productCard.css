@@ -45,6 +45,54 @@
   margin: 1.5rem 0;
   cursor: pointer;
 }
+/* --------------------alert-------------------- */
+/* Toast container */
+.toast-container {
+  position: fixed;
+  top: 20px; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+/* Toast styling */
+.btn-alert-toast {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+.btn-alert-toast1 {
+  background-color:red;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+/* Optional: Add animation for a smoother appearance */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.btn-alert-toast {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+
 @media screen and (max-width: 1050px) {
   .btn-menu {
     padding: 0.7rem 3rem;

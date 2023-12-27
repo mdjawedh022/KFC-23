@@ -18,7 +18,7 @@ const getproductEr = () => {
 export const getProduct = () => (dispatch) => {
   dispatch(getproductReq());
   axios
-    .get(`http://localhost:8080/product`)
+    .get(`https://vast-pear-dalmatian-kit.cyclic.app/product`)
     .then((res) => {
       dispatch(getproductSu(res.data.products));
       // console.log(res);

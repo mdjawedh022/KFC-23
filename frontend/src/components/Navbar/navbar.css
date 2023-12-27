@@ -75,6 +75,9 @@
     font-size: 13px;
     font-weight: bold;
 }
+
+
+
 @media screen and (max-width:1050px){
     .hamburger{
         display:block;
@@ -116,5 +119,9 @@
     }
     .cart-price{
         gap: 0;
+       
+    }
+    .price-cart{
+ display:none;
     }
 }

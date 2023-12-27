@@ -9,8 +9,8 @@ import {
   UPDATE_CART_SUCCESS,
   UPDATE_CART_FAILED,
   DELETE_CART_REQUEST,
-DELETE_CART_SUCCESS,
-DELETE_CART_FAILED 
+  DELETE_CART_SUCCESS,
+  DELETE_CART_FAILED,
 } from "./actionType";
 
 const initialState = {
@@ -31,12 +31,10 @@ export const reducer = (state = initialState, { type, payload }) => {
       return { ...state, isLoading: false, cart: payload };
 
     case UPDATE_CART_SUCCESS:
-     
-      return { ...state, cart:payload };
+      return { ...state, cart: payload };
 
-      
     case POST_CART_SUCCESS:
-       return { ...state, isLoading: false };
+      return { ...state, isLoading: false };
     case DELETE_CART_SUCCESS:
       return { ...state, isLoading: false };
 
@@ -45,6 +43,7 @@ export const reducer = (state = initialState, { type, payload }) => {
     case UPDATE_CART_FAILED:
     case DELETE_CART_FAILED:
       return { ...state, isLoading: false, isError: true };
+
     case "CLEAR_CART":
       return {
         ...state,

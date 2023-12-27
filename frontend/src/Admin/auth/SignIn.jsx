@@ -5,11 +5,10 @@ import img from "../../assets/CAT01.svg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { login} from "../../Redux/auth/action";
+import { adminUserSignin} from "../../Redux/AdminUser/action";
 
 const SignIn = () => {
 const navigate=useNavigate();
-  const location=useLocation();
   const dispatch=useDispatch()
   const [passwordType, setPasswordType] = useState("password");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
@@ -27,8 +26,10 @@ const navigate=useNavigate();
           .required("password Required"),
       }),
       onSubmit: async (values) => {
-        console.log(values);
-        // let userData = values;
+        // console.log(values);
+        let userData = values;
+        dispatch(adminUserSignin(userData)).then(()=> navigate("/admin"));
+       
        
       },
     });
@@ -48,9 +49,12 @@ const navigate=useNavigate();
       <div className="auth-box">
         <form className="form" onSubmit={handleSubmit}>
           <div className="auth-heading">
-            <Link to="/login">Sign In</Link> / <Link to="/signup">Sign Up</Link>
+            <Link to="/signin">Sign In</Link> /{" "}
+            <Link to="/register">Sign Up</Link>
           </div>
+          <h2>Admin</h2>
           <img onClick={handleNavigate} src={img} alt="" />
+
           <p className="head-p-tag">
             LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!
           </p>

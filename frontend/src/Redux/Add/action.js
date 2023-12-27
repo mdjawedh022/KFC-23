@@ -16,11 +16,17 @@ const postSellerFai = () => ({
 });
 
 // ---------------------------------
-
+ axios.defaults.headers = {
+   "Content-Type": "application/json",
+   Authorization: localStorage.getItem("token"),
+ };
 export const postSeller=(data)=>async(dispatch)=>{
    dispatch(postSellerReq())
     try{
-const res = await axios.post(`http://localhost:8080/seller/post`, data);
+const res = await axios.post(
+  `https://vast-pear-dalmatian-kit.cyclic.app/seller/post`,
+  data
+);
 dispatch(postSellerSuc())
 console.log(res)
     }catch(err){

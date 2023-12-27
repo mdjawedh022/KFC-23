@@ -15,7 +15,7 @@ import {
 } from "./actionType";
 
 const postCartReq = () => ({ type: POST_CART_REQUEST });
-const postCartSu = () => ({ type: POST_CART_SUCCESS});
+const postCartSu = () => ({ type: POST_CART_SUCCESS });
 const postCartEr = () => ({ type: POST_CART_FAILED });
 
 const getCartReq = () => ({ type: GET_CART_REQUEST });
@@ -30,38 +30,41 @@ const deleteCartReq = () => ({ type: DELETE_CART_REQUEST });
 const deleteCartSu = () => ({ type: DELETE_CART_SUCCESS });
 const deleteCartEr = () => ({ type: DELETE_CART_FAILED });
 // ------------------------------------------------------
- axios.defaults.headers = {
-   "Content-Type": "application/json",
-   Authorization:localStorage.getItem("token")
-
- };
-//  console.log(localStorage.getItem("token"))
+// axios.defaults.headers = {
+  // "Content-Type": "application/json",
+  // Authorization: localStorage.getItem("token") || "",
+// };
 export const postCart = (data) => async (dispatch) => {
   dispatch(postCartReq());
 
   try {
     const res = await axios.post(
-      "http://localhost:8080/carts/post",
+      "https://vast-pear-dalmatian-kit.cyclic.app/carts/post",
       data
     );
     dispatch(postCartSu(res.data));
-    dispatch(getCart())
-    console.log(res)
+    dispatch(getCart());
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     dispatch(postCartEr());
   }
 };
 export const getCart = () => async (dispatch) => {
   // ------------------------------------------
- 
+
   dispatch(getCartReq());
 
   try {
-    const res = await axios.get("http://localhost:8080/carts");
+    const res = await axios.get(
+      "https://vast-pear-dalmatian-kit.cyclic.app/carts",
+      {
+        Authorization: localStorage.getItem("token"),
+      }
+    );
+
     dispatch(getCartSu(res.data));
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     dispatch(getCartEr());
   }
 };
@@ -70,13 +73,16 @@ export const updateCart = (id, updatedQuantity) => async (dispatch) => {
   dispatch(updateCartReq());
 
   try {
-    await axios.patch(`http://localhost:8080/carts/update/${id}`, {
-      quantity: updatedQuantity,
-    });
+    await axios.patch(
+      `https://vast-pear-dalmatian-kit.cyclic.app/carts/update/${id}`,
+      {
+        quantity: updatedQuantity,
+      }
+    );
     dispatch(updateCartSu({ id, quantity: updatedQuantity }));
     dispatch(getCart());
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     dispatch(updateCartEr());
   }
 };
@@ -85,20 +91,24 @@ export const deleteCart = (id) => async (dispatch) => {
   dispatch(deleteCartReq());
 
   try {
-    await axios.delete(`http://localhost:8080/carts/delete/${id}`);
+    await axios.delete(
+      `https://vast-pear-dalmatian-kit.cyclic.app/carts/delete/${id}`
+    );
     dispatch(deleteCartSu());
-    dispatch(getCart()) 
+    dispatch(getCart());
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     dispatch(deleteCartEr());
   }
 };
 // --------------------------------------------
-export const alldataDelete=()=>async(dispatch)=>{
-    try{
-        await axios.delete(`http://localhost:8080/carts/delete`);
-          dispatch(getCart()); 
-    }catch (err) {
-    console.error(err);
-    }
-}
+export const alldataDelete = () => async (dispatch) => {
+  try {
+    await axios.delete(
+      `https://vast-pear-dalmatian-kit.cyclic.app/carts/delete`
+    );
+    dispatch(getCart());
+  } catch (err) {
+    // console.error(err);
+  }
+};

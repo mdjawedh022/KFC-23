@@ -14,30 +14,30 @@ const Update = ({
   cate,
   sellerId,
   setIsUpdating,
+  isUpdating,
 }) => {
- const dispatch=useDispatch();
-   const [updatedData, setUpdatedData] = useState({
-     title: title,
-     images:images,
-     description: description,
-     price: price,
-     category: category,
-     cate: cate,
-     sellerId: sellerId
-   });
+  const dispatch = useDispatch();
+  const [updatedData, setUpdatedData] = useState({
+    title: title,
+    images: images,
+    description: description,
+    price: price,
+    category: category,
+    cate: cate,
+    sellerId: sellerId,
+  });
   const handleSaveUpdate = () => {
     dispatch(updateSellerData(_id, updatedData));
-    setIsUpdating(false);
-  
-  }
-    const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setUpdatedData({
-        ...updatedData,
-        [name]: value,
-      });
-    };
-  
+    setIsUpdating(!isUpdating);
+  };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUpdatedData({
+      ...updatedData,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       {/* <div className="grid-container">

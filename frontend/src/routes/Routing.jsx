@@ -15,6 +15,7 @@ import Register from '../Admin/auth/Register';
 import SignIn from '../Admin/auth/SignIn';
 import Logout from '../pages/User/Logout';
 import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
+import {PrivateAdmin} from '../Admin/components/private/PrivateAdmin';
 
 const Routing = () => {
   return (
@@ -35,13 +36,21 @@ const Routing = () => {
           }
         />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/admin" element={<Dashboard />} />
+        <Route
+          path="/admin"
+          element={
+            <PrivateAdmin>
+              {" "}
+              <Dashboard />
+            </PrivateAdmin>
+          }
+        />
         <Route path="/add" element={<Add />} />
         <Route path="/update" element={<Update />} />
         <Route path="/product" element={<Product />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
-        {/* <Route path="*" element={<NoPage />} /> */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </>
   );

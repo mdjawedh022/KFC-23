@@ -9,8 +9,8 @@ const Logout= () => {
   const dispatch = useDispatch();
 const navigate=useNavigate();
   const handleLogout = () => {
-    dispatch(logoutUser());
-    navigate("/login");
+    dispatch(logoutUser())
+     navigate("/login");
   };
 const name=localStorage.getItem("user")
   return (

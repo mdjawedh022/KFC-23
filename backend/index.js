@@ -10,6 +10,7 @@ const { CartRouter } = require("./Routes/cart.routes");
 const { CheckoutRouter } = require("./Routes/checkout.routes");
 const { authenticate } = require("./middleware/auth.middleware");
 const { AdminUserRouter } = require("./Routes/adminUser.routes");
+const { CheckoutGetRouter } = require("./Routes/checkoutGet.routes");
 
 app.get("/", (req, res) => {
   res.send("welcome to kfc backend");
@@ -25,6 +26,7 @@ app.use("/carts", authenticate, CartRouter);
 app.use("/admin/user", AdminUserRouter);
 app.use("/seller",  SellerRouter);
 app.use("/checkout", authenticate, CheckoutRouter);
+app.use("/order", CheckoutGetRouter);
 
 app.listen(process.env.port, async () => {
   try {

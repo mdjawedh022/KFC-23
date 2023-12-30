@@ -7,7 +7,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 1.9rem 9rem;
+    padding: 1.7rem 9rem;
     background-color: #fff;
     z-index: 999;
     
@@ -70,8 +70,8 @@
     cursor: pointer;
 }
 #cartitems{
-    margin-top: -36px;
-    margin-left: 22px;
+    margin-top: -39px;
+    margin-left: 5px;
     font-size: 13px;
     font-weight: bold;
 }

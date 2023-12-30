@@ -28,7 +28,7 @@ const res = await axios.post(
   data
 );
 dispatch(postSellerSuc())
-console.log(res)
+// console.log(res)
     }catch(err){
         console.log(err)
         dispatch(postSellerFai())

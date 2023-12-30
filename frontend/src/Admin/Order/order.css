@@ -1,0 +1,56 @@
+
+.order-heading{
+    color: Black;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.order-card{
+    display: grid;
+   grid-template-columns: repeat(auto-fit,minmax(300px,max-content));
+   gap: 20px;
+}
+.order-card img{
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+.order-item{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    color: #202124;
+}
+.order-item h3,h4,p{
+    padding:.2rem 1rem;
+} 
+.order-card-btn{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.order-card-btn button{
+    background-color: transparent;
+    padding: .5rem 1rem;
+    border-radius:5px;
+    cursor: pointer;
+}
+.order-card-btn button:nth-child(1){
+border: 2px solid rgb(9, 255, 0);
+color: rgb(9, 255, 0);
+font-weight: 600;
+}
+.order-card-btn button:nth-child(2){
+border: 2px solid red;
+color: red;
+font-weight: 600;
+}
+.order-card-btn button:nth-child(2):hover{
+border: 2px solid rgb(196, 6, 6);
+color: white;
+background-color: red;
+font-weight: 600;
+}
+.order-card-btn button:nth-child(1):hover{
+border: 2px solid rgb(9, 255, 0);
+color: white;
+background-color: rgb(15, 187, 10);
+font-weight: 600;
+}

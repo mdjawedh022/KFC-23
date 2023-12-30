@@ -22,16 +22,19 @@ import Navbar from "../components/Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { getSellerProduct } from "../../Redux/Sellerproduct/action";
 import { useNavigate } from "react-router-dom";
+import { orderData } from "../../Redux/order/action";
 
 function Dashboard() {
   const dispatch=useDispatch()
   const navigate=useNavigate()
  const { productAdmin } = useSelector(
-   (state) => state.sellerProduct
- );
- //   console.log(productAdmin);
+   (state) => state.sellerProduct);
+   const {order}=useSelector((state)=>state.orderReducer)
+   const {user}=useSelector((state)=>state.userReducer)
+   console.log(user);
  useEffect(() => {
    dispatch(getSellerProduct());
+   dispatch(orderData())
  }, [dispatch]);
   const data = [
     {
@@ -79,6 +82,9 @@ function Dashboard() {
   ];
 const cat = productAdmin.filter((elem) => elem.cate);
 
+const handleOrder=()=>{
+  navigate("/order")
+}
 
 const handleproductAdmin=()=>{
   navigate('/product')
@@ -114,12 +120,12 @@ const handleproductAdmin=()=>{
               </div>
               <h1>33</h1>
             </div>
-            <div className="card">
+            <div className="card" onClick={handleOrder}>
               <div className="card-inner">
                 <h3>ALERTS</h3>
                 <BsFillBellFill className="card_icon" />
               </div>
-              <h1>42</h1>
+              <h1>{order.length}</h1>
             </div>
           </div>
 

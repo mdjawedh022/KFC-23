@@ -16,6 +16,9 @@ import SignIn from '../Admin/auth/SignIn';
 import Logout from '../pages/User/Logout';
 import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 import {PrivateAdmin} from '../Admin/components/private/PrivateAdmin';
+import Order from '../Admin/Order/Order';
+import AdminUser from '../Admin/Customer/AdminUser';
+import Customer from '../Admin/Customer/Customer';
 
 const Routing = () => {
   return (
@@ -45,9 +48,56 @@ const Routing = () => {
             </PrivateAdmin>
           }
         />
-        <Route path="/add" element={<Add />} />
-        <Route path="/update" element={<Update />} />
-        <Route path="/product" element={<Product />} />
+        <Route
+          path="/add"
+          element={
+            <PrivateAdmin>
+              {" "}
+              <Add />{" "}
+            </PrivateAdmin>
+          }
+        />
+        <Route
+          path="/update"
+          element={
+            <PrivateAdmin>
+              {" "}
+              <Update />{" "}
+            </PrivateAdmin>
+          }
+        />
+        <Route
+          path="/product"
+          element={
+            <PrivateAdmin>
+              <Product />
+            </PrivateAdmin>
+          }
+        />
+        <Route
+          path="/order"
+          element={
+            <PrivateAdmin>
+              <Order />
+            </PrivateAdmin>
+          }
+        />
+        <Route
+          path="/adminUser"
+          element={
+            <PrivateAdmin>
+              <AdminUser />
+            </PrivateAdmin>
+          }
+        />
+        <Route
+          path="/customer"
+          element={
+            <PrivateAdmin>
+              <Customer />
+            </PrivateAdmin>
+          }
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="*" element={<Home />} />

@@ -7,6 +7,8 @@ import {
   BsPeopleFill,
   BsMenuButtonWideFill,
 } from "react-icons/bs";
+import { FiShoppingBag } from "react-icons/fi";
+
 import { Link } from "react-router-dom";
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
@@ -32,12 +34,12 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         </li>
 
         <li className="sidebar-list-item">
-          <Link>
+          <Link to="/adminUser">
             <BsFillGrid3X3GapFill className="icons" /> Admin User
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link>
+          <Link to="/customer">
             <BsPeopleFill className="icons" /> Customers
           </Link>
         </li>
@@ -49,6 +51,11 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         <li className="sidebar-list-item">
           <Link to="/add">
             <BsMenuButtonWideFill className="icons" /> Add
+          </Link>
+        </li>
+        <li className="sidebar-list-item">
+          <Link to="/order">
+            <FiShoppingBag className="icons" /> Order
           </Link>
         </li>
       </ul>

@@ -1,4 +1,5 @@
-import { USER_ERROR, USER_LOGIN_ERROR, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REQUEST, USER_SUCCESS } from "./actionType";
+import { USER_GET_ERROR, USER_GET_REQUEST, USER_GET_SUCCESS } from "../auth/actionType";
+import { ADMIN_USER_DELETE_FAILURE, ADMIN_USER_DELETE_REQUEST, ADMIN_USER_DELETE_SUCCESS, USER_ERROR, USER_LOGIN_ERROR, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT, USER_REQUEST, USER_SUCCESS } from "./actionType";
 
 const initialState = {
   admin: [],
@@ -17,11 +18,23 @@ export const reducer = (state = initialState, { type, payload }) => {
     case USER_LOGIN_REQUEST:
       return { ...state, isLoding: true, isError: false };
     case USER_LOGIN_SUCCESS:
-      return { ...state, isLoding: false, isError: false};
+      return { ...state, isLoding: false, isError: false };
     case USER_LOGIN_ERROR:
       return { ...state, isLoding: false, isError: true };
     case USER_LOGOUT:
       return { ...state, isLoading: false, isError: false, token: null };
+    case USER_GET_REQUEST:
+      return { ...state, isLoading: true, isError: false };
+    case USER_GET_SUCCESS:
+      return { ...state, isLoding: false, admin: payload };
+    case USER_GET_ERROR:
+      return { ...state, isLoading: false, isError: true };
+    case ADMIN_USER_DELETE_REQUEST:
+      return { ...state, isLoding: true, isError: false };
+    case ADMIN_USER_DELETE_SUCCESS:
+      return { ...state, isLoding: false, isError: false };
+    case ADMIN_USER_DELETE_FAILURE:
+      return { ...state, isLoding: false, isError: true };
     default:
       return state;
   }

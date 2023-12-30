@@ -1,0 +1,45 @@
+
+
+/* admin-------------------- */
+/* AdminUser.css */
+
+.table-container {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-table th, .admin-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  color: #202124;
+}
+
+.admin-table th {
+  background-color: #f2f2f2;
+}
+ 
+    
+.admin-table button{
+    border: 1px solid red;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+    padding: .3rem .5rem;
+    border-radius: 5px;
+}
+.admin-table button:hover{
+     background-color:red;
+    color: rgb(251, 248, 248);
+
+}
+@media screen and (max-width: 450px) {
+  .table-container {
+    overflow-x: scroll; 
+  }
+}

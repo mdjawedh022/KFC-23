@@ -18,9 +18,9 @@ export const getSellerProduct=()=>async(dispatch)=>{
     try{
  const res = await axios.get(`https://vast-pear-dalmatian-kit.cyclic.app/seller/get`);
  dispatch(getSellerSuc(res.data))
- console.log(res.data)
+//  console.log(res.data)
     }catch(err){
-        console.log(err);
+        // console.log(err);
         dispatch(getSellerFail())
     }
 }
@@ -44,7 +44,7 @@ export const updateSellerData=(_id,updateData)=>async(dispatch)=>{
         );
         dispatch(getSellerProduct())
         dispatch(updateSeller())
-        console.log(res)
+        // console.log(res)
     }catch(err){
         console.log(err)
     }

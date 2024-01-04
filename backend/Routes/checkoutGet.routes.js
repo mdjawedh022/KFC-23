@@ -11,6 +11,14 @@ CheckoutGetRouter.get("/", async (req, res) => {
     res.send({ msg: "Internal server error", err });
   }
 });
+CheckoutGetRouter.delete("/delete/:id",async(req,res)=>{
+  try{
+    await CheckoutModel.findByIdAndDelete({_id:id})
+    res.send({msg:"order data has been deleted!"})
+  }catch(err){
+    res.send({msg:"internal server error!"})
+  }
+})
 
 module.exports = {
   CheckoutGetRouter,

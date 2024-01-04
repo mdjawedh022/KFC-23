@@ -7,7 +7,7 @@ import "./customer.css";
 const Customer = () => {
      const dispatch = useDispatch();
      const { users } = useSelector((state) => state.userReducer);
-     console.log(users);
+    //  console.log(users);
      useEffect(() => {
        dispatch(usergetData());
      }, [dispatch]);

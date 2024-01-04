@@ -5,11 +5,11 @@ import img from "../../assets/CAT01.svg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { userAdminSignup } from "../../Redux/AdminUser/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Register = () => {
   const navigate=useNavigate();
-  // const location=useLocation();
+  const { admin } = useSelector((state) => state.adminReducer);
   const dispatch=useDispatch()
   const [passwordType, setPasswordType] = useState("password");
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
@@ -32,8 +32,14 @@ const Register = () => {
       }),
       onSubmit: (values) => {
         let  userData=values;
+    admin.filter((elem) => {
+      if (elem.email.toLowerCase() === values.email.toLowerCase()) {
+        alert("Already registered!");
+      } else {
         dispatch(userAdminSignup(userData)).then(() => navigate("/signin"));
       }
+    });
+    }
     })
 // ------------------------------------------
   const handlePassword = () => {

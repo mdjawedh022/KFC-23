@@ -23,6 +23,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSellerProduct } from "../../Redux/Sellerproduct/action";
 import { useNavigate } from "react-router-dom";
 import { orderData } from "../../Redux/order/action";
+import { usergetData } from "../../Redux/auth/action";
 
 function Dashboard() {
   const dispatch=useDispatch()
@@ -30,11 +31,11 @@ function Dashboard() {
  const { productAdmin } = useSelector(
    (state) => state.sellerProduct);
    const {order}=useSelector((state)=>state.orderReducer)
-   const {user}=useSelector((state)=>state.userReducer)
-   console.log(user);
+     const { users } = useSelector((state) => state.userReducer);
  useEffect(() => {
    dispatch(getSellerProduct());
    dispatch(orderData())
+  dispatch(usergetData());
  }, [dispatch]);
   const data = [
     {
@@ -118,7 +119,7 @@ const handleproductAdmin=()=>{
                 <h3>CUSTOMERS</h3>
                 <BsPeopleFill className="card_icon" />
               </div>
-              <h1>33</h1>
+              <h1>{users.length}</h1>
             </div>
             <div className="card" onClick={handleOrder}>
               <div className="card-inner">

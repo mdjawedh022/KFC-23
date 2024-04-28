@@ -14,7 +14,7 @@ import {
   USER_SUCCESS,
 } from "./actionType";
 import axios from "axios";
-
+import cookies from "js-cookie"
 
 const userreque = () => ({ type: USER_REQUEST });
 const usersucce = () => ({ type: USER_SUCCESS });
@@ -49,12 +49,14 @@ export const loginUser = (loginData) => async (dispatch) => {
   try {
     const res = await axios.post(
       `https://vast-pear-dalmatian-kit.cyclic.app/users/login`,
-      loginData
+      loginData   
     );
     dispatch(loginsucce());
-    // console.log(res.data)
+    console.log(res.data)
     localStorage.setItem("token",res.data.token)
     localStorage.setItem("user",res.data.user)
+    cookies.set("user",res.data.user)
+    
   } catch (err) {
     dispatch(loginFaile());
     console.log(err);
@@ -64,13 +66,16 @@ export const loginUser = (loginData) => async (dispatch) => {
 export const logoutUser = () => (dispatch) => {
  localStorage.removeItem("user");
   localStorage.removeItem("token");
+  cookies.remove("user")
   dispatch({ type: USER_LOGOUT });
 };
 
 export const usergetData=()=>async(dispatch)=>{
   dispatch(usergetreque())
   try{
- const res=await axios.get(`http://localhost:8080/userGet`)
+ const res = await axios.get(
+   `https://vast-pear-dalmatian-kit.cyclic.app/userGet`
+ );
  dispatch(usergetsucce(res.data))
   }catch(err){
     dispatch(usergetFaile(err));
@@ -84,7 +89,9 @@ const deleteFailure = () => ({ type: ADMIN_USER_DELETE_FAILURE });
 export const userDelete = (id) => async (dispatch) => {
   dispatch(deleteRequest());
   try {
-    await axios.delete(`http://localhost:8080/userGet/delete/${id}`);
+    await axios.delete(
+      `https://vast-pear-dalmatian-kit.cyclic.app/userGet/delete/${id}`
+    );
     dispatch(deleteSuccess());
     dispatch(usergetData());
   } catch (error) {

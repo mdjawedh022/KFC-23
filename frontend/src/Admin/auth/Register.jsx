@@ -31,14 +31,9 @@ const Register = () => {
           .required("password Required"),
       }),
       onSubmit: (values) => {
-        let  userData=values;
-    admin.filter((elem) => {
-      if (elem.email.toLowerCase() === values.email.toLowerCase()) {
-        alert("Already registered!");
-      } else {
+        let userData=values
         dispatch(userAdminSignup(userData)).then(() => navigate("/signin"));
-      }
-    });
+  
     }
     })
 // ------------------------------------------

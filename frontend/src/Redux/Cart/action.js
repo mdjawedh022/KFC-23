@@ -30,10 +30,10 @@ const deleteCartReq = () => ({ type: DELETE_CART_REQUEST });
 const deleteCartSu = () => ({ type: DELETE_CART_SUCCESS });
 const deleteCartEr = () => ({ type: DELETE_CART_FAILED });
 // ------------------------------------------------------
-// axios.defaults.headers = {
-  // "Content-Type": "application/json",
-  // Authorization: localStorage.getItem("token") || "",
-// };
+axios.defaults.headers = {
+  "Content-Type": "application/json",
+  Authorization: localStorage.getItem("token") || "",
+};
 export const postCart = (data) => async (dispatch) => {
   dispatch(postCartReq());
 

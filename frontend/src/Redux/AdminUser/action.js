@@ -63,7 +63,9 @@ export const AdminlogoutUser = () => (dispatch) => {
 export const adminuserGet = () => async (dispatch) => {
   dispatch(usergetreque());
   try {
-    const res = await axios.get(`http://localhost:8080/adminuser`);
+    const res = await axios.get(
+      `https://vast-pear-dalmatian-kit.cyclic.app/adminuser`
+    );
     dispatch(usergetsucce(res.data));
     console.log(res.data)
   } catch (err) {
@@ -78,7 +80,9 @@ const deleteFailure = () => ({ type: ADMIN_USER_DELETE_FAILURE });
 export const adminuserDelete = (id) => async (dispatch) => {
   dispatch(deleteRequest());
   try {
-    await axios.delete(`http://localhost:8080/adminuser/delete/${id}`);
+    await axios.delete(
+      `https://vast-pear-dalmatian-kit.cyclic.app/adminuser/delete/${id}`
+    );
     dispatch(deleteSuccess());
     dispatch(adminuserGet()); 
   } catch (error) {

@@ -22,7 +22,9 @@ const deleteSucorder = () => ({ type: ORDER_DELETE_SUCCESS });
 
 export const orderDelete = (id) => async (dispatch) => {
   try {
-    await axios.delete(`http://localhost:8080/order/delete/${id}`);
+    await axios.delete(
+      `https://vast-pear-dalmatian-kit.cyclic.app/order/delete/${id}`
+    );
     dispatch(orderData()); 
     dispatch(deleteSucorder());
   } catch (err) {

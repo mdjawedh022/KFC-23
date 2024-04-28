@@ -16,7 +16,7 @@ const ProductCard = ({ productData }) => {
      dispatch(postCart(title));
     const isProductInCart = cart.filter((item) => item.title === title);
    if(isAuth){
- if (isProductInCart.length === 0) {
+ if (isProductInCart.length <= 0) {
    dispatch(postCart(productData));
    setToast(true);
    setTimeout(() => {
@@ -81,7 +81,7 @@ setAlert(false)
       <div className="toast-container">
         {alert && (
           <button className="btn-alert-toast1">
-            please lgoin first !
+            please login first !
           </button>
         )}
       </div>

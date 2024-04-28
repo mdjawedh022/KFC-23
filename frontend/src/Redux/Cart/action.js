@@ -40,7 +40,12 @@ export const postCart = (data) => async (dispatch) => {
   try {
     const res = await axios.post(
       "https://vast-pear-dalmatian-kit.cyclic.app/carts/post",
-      data
+      data,
+      {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      }
     );
     dispatch(postCartSu(res.data));
     dispatch(getCart());

@@ -52,10 +52,11 @@ export const loginUser = (loginData) => async (dispatch) => {
       loginData   
     );
     dispatch(loginsucce());
-    console.log(res.data)
+   
     localStorage.setItem("token",res.data.token)
     localStorage.setItem("user",res.data.user)
     cookies.set("user",res.data.user)
+     return res.data;
     
   } catch (err) {
     dispatch(loginFaile());

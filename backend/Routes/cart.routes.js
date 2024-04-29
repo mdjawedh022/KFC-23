@@ -6,7 +6,7 @@ const CartRouter = express.Router();
 // -----------get cart data--------------
 CartRouter.get("/", async (req, res) => {
   const {userId}=req.body
-  console.log("userId",userId);
+  // console.log("userId",userId);
   try {
     const dataCart = await CartModel.find({ userId });
     res.status(200).send(dataCart);

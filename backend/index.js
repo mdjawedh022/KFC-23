@@ -24,11 +24,10 @@ app.use(express.json());
 // ---complete--backend--- 
 app.use("/users", AuthRouter);
 app.use("/product", ProductRouter);
-app.use("/carts",CartRouter);
+app.use("/carts", authenticate, CartRouter);
 app.use("/admin/user", AdminUserRouter);
 app.use("/seller",  SellerRouter);
-// app.use("/checkout", authenticate, CheckoutRouter);
-app.use("/checkout",CheckoutRouter);
+app.use("/checkout", authenticate, CheckoutRouter);
 app.use("/order", CheckoutGetRouter);
 app.use("/userGet", authgetRouter);
 app.use("/adminuser",adminUsergetRouter)
